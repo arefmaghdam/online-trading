@@ -4,43 +4,49 @@
 }
 
 .box {
-
+    padding: 6px;
+    height: 100%;
+    border-radius: 3px;
 }
 
 .color1 {
-    /* background-color: #353535; */
+    background-color: #353535;
 }
 
 .color2 {
-    /* background-color: #3D3D3D; */
+    background-color: #3D3D3D;
 }
 
 .header {
-    background-color: red;
     height: 35px;
+    padding: 0;
+}
+
+.headerContent {
+    height: 100%;
 }
 
 .watchlist {
-    background-color: blue;
     height: calc(100vh - 35px - 30vh);
+    padding: 12px 0 0 12px;
 }
 
 .details {
-    background-color: green;
     height: calc(100vh - 35px - 30vh);
+    padding: 12px 0 0 12px;
 }
 
 .orderbook {
-    background-color: yellow;
     height: calc(100vh - 35px - 30vh);
+    padding: 12px 12px 0 12px;
 }
 
 .overview {
-    background-color: pink;
     height: calc(30vh);
+    padding: 12px 0 12px 12px;
 }
 
 .report {
-    background-color: white;
     height: calc(30vh);
+    padding: 12px 12px 12px 12px;
 }
