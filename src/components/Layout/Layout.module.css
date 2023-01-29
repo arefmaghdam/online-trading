@@ -1,0 +1,46 @@
+.container {
+    background-color: #1A1A1A;
+    height: 100vh;
+}
+
+.box {
+
+}
+
+.color1 {
+    /* background-color: #353535; */
+}
+
+.color2 {
+    /* background-color: #3D3D3D; */
+}
+
+.header {
+    background-color: red;
+    height: 35px;
+}
+
+.watchlist {
+    background-color: blue;
+    height: calc(100vh - 35px - 30vh);
+}
+
+.details {
+    background-color: green;
+    height: calc(100vh - 35px - 30vh);
+}
+
+.orderbook {
+    background-color: yellow;
+    height: calc(100vh - 35px - 30vh);
+}
+
+.overview {
+    background-color: pink;
+    height: calc(30vh);
+}
+
+.report {
+    background-color: white;
+    height: calc(30vh);
+}
