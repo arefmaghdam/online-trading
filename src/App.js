@@ -1,7 +1,7 @@
-import React from "react";
+import Layout from "./components/Layout/Layout";
 
 const App = () => {
-  return <h1>Online Trading</h1>;
+  return <Layout />;
 };
 
 export default App;
