@@ -1,0 +1,16 @@
+.containerFluid, .containerFluid > div > div {
+    height: 35px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    color: #fff;
+    padding-left: 0;
+}
+
+.menu ul li {
+    flex-direction: column;
+    padding: 7px;
+    font-size: 0.9rem;
+}

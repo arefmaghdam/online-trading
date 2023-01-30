@@ -1,4 +1,5 @@
 import styles from "./Layout.module.css";
+import Header from "../Header/Header";
 
 const Layout = () => {
   return (
@@ -6,7 +7,7 @@ const Layout = () => {
       <div className="row">
         <div className={`col-sm-12 ${styles.header}`}>
           <div className={`${styles.headerContent} ${styles.color1}`}>
-            header
+            <Header />
           </div>
         </div>
       </div>
