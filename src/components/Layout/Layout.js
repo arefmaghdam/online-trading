@@ -1,5 +1,6 @@
-import styles from "./Layout.module.css";
-import Header from "../Header/Header";
+import styles from "./Layout.module.css"
+import Menu from "../Menu/Menu";
+import Search from "../Search/Search";
 
 const Layout = () => {
   return (
@@ -7,7 +8,17 @@ const Layout = () => {
       <div className="row">
         <div className={`col-sm-12 ${styles.header}`}>
           <div className={`${styles.headerContent} ${styles.color1}`}>
-            <Header />
+            <div className={`container-fluid`}>
+              <div className="row">
+                <div className="col-md-4">
+                  <Menu />
+                </div>
+                <div className="col-md-4">
+                  <Search />
+                </div>
+                <div className="col-md-4"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

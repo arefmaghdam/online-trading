@@ -50,3 +50,7 @@
     height: calc(30vh);
     padding: 12px 12px 12px 12px;
 }
+
+.headerContent > div, .headerContent > div > div > div {
+    height: 35px;
+}

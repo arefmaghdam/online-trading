@@ -1,0 +1,18 @@
+.search {
+    margin-top: 2px;
+}
+
+.search input {
+    background: #fff url('./img/magnifier.jpg');
+    background-repeat: no-repeat;
+    background-position-y: 5px;
+    background-position-x: 8px;
+    padding: 2px 0 0 33px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    height: 30px;
+}
+
+.search a[role="option"] {
+    font-weight: 700;
+}
