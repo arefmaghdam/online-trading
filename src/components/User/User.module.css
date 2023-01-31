@@ -1,5 +1,26 @@
 .user {
     margin-top: 4px;
-    margin-left: 405px;
+    margin-left: 270px;
     color: grey;
+    display: flex;
 }
+
+.user > h6,h3 {
+    flex-direction: column;
+}
+
+.user > h6 {
+    margin-right: 50px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.user > h4 {
+    color: #00FF29;
+    margin-top: 3px;
+}
+
+.time {
+    color: #FFFFFF;
+}
+
