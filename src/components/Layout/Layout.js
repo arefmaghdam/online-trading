@@ -1,6 +1,7 @@
-import styles from "./Layout.module.css"
+import styles from "./Layout.module.css";
 import Menu from "../Menu/Menu";
 import Search from "../Search/Search";
+import User from "../User/User";
 
 const Layout = () => {
   return (
@@ -16,7 +17,9 @@ const Layout = () => {
                 <div className="col-md-4">
                   <Search />
                 </div>
-                <div className="col-md-4"></div>
+                <div className="col-md-4">
+                  <User />
+                </div>
               </div>
             </div>
           </div>
