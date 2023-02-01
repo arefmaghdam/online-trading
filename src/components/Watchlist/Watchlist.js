@@ -12,39 +12,16 @@ const Watchlist = () => {
         <div className="col-md-12">
           <div className={`${styles.watchlist}`}>
             <span className={`${styles.watchlistHeader}`}>Watchlist</span>
-            <div className="row">
-              <div className="col-md-4">
-                <div className="dropdown">
-                  <button
-                    className={`btn dropdown ${styles.dropdown}`}
-                    type="button"
-                    id="dropdownMenu2"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <h6>
-                      {" "}
-                      <FaChevronDown /> Most Profitable{" "}
-                    </h6>
-                  </button>
-                  <div
-                    className="dropdown-menu"
-                    aria-labelledby="dropdownMenu2"
-                  >
-                    <button className="dropdown-item" type="button">
-                      BTC-USDT
-                    </button>
-                    <button className="dropdown-item" type="button">
-                      SHIBA-USDT
-                    </button>
-                    <button className="dropdown-item" type="button">
-                      ETC-USDT
-                    </button>
-                  </div>
-                </div>
+
+            <div class={styles.toolbar}>
+              <div class={styles.select}>
+                <select>
+                  <option>BTC-USDT</option>
+                  <option>SHIBA-USDT</option>
+                  <option>ETC-USDT</option>
+                </select>
               </div>
-              <div className={`col-md-8 ${styles.editButtons}`}>
+              <div>
                 <button className={`btn ${styles.editWatchlist}`}>
                   <MdEdit />
                 </button>

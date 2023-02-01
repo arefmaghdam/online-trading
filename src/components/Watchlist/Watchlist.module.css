@@ -1,89 +1,104 @@
 .watchlistHeader {
-    color: #FFFFFF;
-    margin-left: 12px;
-    font-size: 15px;
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .table {
-    color: #fff;
-    font-size: 12px;
-    border: hidden;
-    margin-left: 2px;
+  color: #fff;
+  font-size: 12px;
+  border: hidden;
 }
 
 .table > thead {
-    border: hidden;
+  border: hidden;
 }
 
 .table > tbody > tr {
-    border: hidden;
-    height: 100%;
+  border: hidden;
+  height: 100%;
 }
 
 .table > tbody > tr > td {
-    padding: 0 0 0 12px;
+  padding: 0 0 0 12px;
 }
 
 .watchlist {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .dropdown {
-    background-color : #353535 ;
-    color: #fff; 
-    margin-top: 12px;
+  background-color: #353535;
+  color: #fff;
+  margin-top: 12px;
 }
 
 .dropdown:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .dropdown > h6 {
-    font-size: 12px;
-    font-weight: bold;
-    margin-left: 0;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 0;
 }
 
 .table > tbody > tr > td > div {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .table > tbody > tr > td > p {
-    font-size: 10px;
-    color: #00FF29;
+  font-size: 10px;
+  color: #00ff29;
 }
 
 .editWatchlist {
-    margin-right: 6px;
-    padding: 2px 5px 0px 5px;
-    background-color: #2E2E2E;
-    color: #FFFFFF;
+  margin-right: 6px;
+  padding: 2px 5px 0px 5px;
+  background-color: #2e2e2e;
+  color: #ffffff;
 }
 
 .addWatchlist {
-    margin-right: 6px;
-    padding: 2px 5px 0px 5px;
-    background-color: #2E2E2E;
-    color: #FFFFFF;
+  margin-right: 6px;
+  padding: 2px 5px 0px 5px;
+  background-color: #2e2e2e;
+  color: #ffffff;
 }
 
 .removeWatchlist {
-    margin-right: 6px;
-    padding: 2px 5px 0px 5px;
-    background-color: #2E2E2E;
-    color: #FFFFFF;
-}
-
-.editButtons {
-    padding-left: calc((100vw - (100vw * 2 / 3)) / 2.8);
-    padding-right: 0;
-    margin-top: 15px;
+  margin-right: 6px;
+  padding: 2px 5px 0px 5px;
+  background-color: #2e2e2e;
+  color: #ffffff;
 }
 
 .watchlistSize {
-    height: 100%;
-    padding: 0;
-    overflow: hidden;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
 }
 
+.toolbar {
+  display: flex;
+  height: 100%;
+}
+
+.select {
+  /* flex:1 1 auto; */
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+.select select {
+  width: 100%;
+  background: #353535;
+  border: 0;
+  color: #fff;
+}
+
+.select select:focus-visible {
+  outline: 0;
+}
