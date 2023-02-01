@@ -4,16 +4,25 @@ import { MdDesktopWindows } from "react-icons/md";
 
 const User = () => {
   return (
-    <div className={`${styles.user}`}>
-      <h4>
-        {" "}
-        <MdDesktopWindows />{" "}
-      </h4>
-      <h6 className={`${styles.time}`}>12:47</h6>
-      <h3>
-        {" "}
-        <FaUserCircle />{" "}
-      </h3>
+    <div className={`container-fluid ${styles.user}`}>
+      <div className="row">
+        <div className="col-md-6">
+          <h4>
+            {" "}
+            <MdDesktopWindows />
+            {"  "}
+          </h4>
+        </div>
+        <div className="col-md-4">
+          <h6>12:47</h6>
+        </div>
+        <div className="col-md-2">
+          <h3>
+            {" "}
+            <FaUserCircle />{" "}
+          </h3>
+        </div>
+      </div>
     </div>
   );
 };

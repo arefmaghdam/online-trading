@@ -1,26 +1,23 @@
 .user {
-    margin-top: 4px;
-    margin-left: 270px;
+    margin-right: 0;
     color: grey;
-    display: flex;
+    height: 35px;
 }
 
-.user > h6,h3 {
-    flex-direction: column;
-}
-
-.user > h6 {
-    margin-right: 50px;
-    margin-left: 10px;
-    margin-top: 3px;
-}
-
-.user > h4 {
+h4 {
     color: #00FF29;
-    margin-top: 3px;
+    margin-top: 5px;
+    margin-left:calc(60vh);
+    height: 35px;
 }
 
-.time {
-    color: #FFFFFF;
+h6 {
+    margin-top: 5px;
+    margin-left: calc(10vh);
+}
+
+h3 {
+    margin-top: 3px;
+    margin-left: calc(10vh);
 }
 
