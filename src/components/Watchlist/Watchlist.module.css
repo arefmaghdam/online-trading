@@ -1,0 +1,46 @@
+.watchlistHeader {
+    color: #FFFFFF;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.table {
+    color: #fff;
+    font-size: 12px;
+    border: hidden;
+    margin-left: 6px;
+}
+
+.table > thead {
+    border: hidden;
+}
+
+.table > tbody > tr {
+    border: hidden;
+    height: 100%;
+}
+
+.watchlist {
+    margin-top: 5px;
+    height: calc(100vh - 35px - 30vh);
+}
+
+.dropdown {
+    background-color : #353535 ;
+    color: #fff; 
+    margin-top: 12px;
+}
+
+.dropdown > h6 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.table > tbody > tr > td > div {
+    font-size: 10px;
+}
+
+.table > tbody > tr > td > p {
+    font-size: 10px;
+    color: #00FF29;
+}

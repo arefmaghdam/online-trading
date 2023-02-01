@@ -2,6 +2,7 @@ import styles from "./Layout.module.css";
 import Menu from "../Menu/Menu";
 import Search from "../Search/Search";
 import User from "../User/User";
+import Watchlist from "../Watchlist/Watchlist";
 
 const Layout = () => {
   return (
@@ -27,7 +28,9 @@ const Layout = () => {
       </div>
       <div className="row ">
         <div className={`col-sm-4  ${styles.watchlist}`}>
-          <div className={`${styles.box} ${styles.color1}`}>watchlist</div>
+          <div className={`${styles.box} ${styles.color1}`}>
+            <Watchlist />
+          </div>
         </div>
         <div className={`col-sm-3  ${styles.details}`}>
           <div className={`${styles.box} ${styles.color1}`}>details</div>
