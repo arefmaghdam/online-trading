@@ -7,7 +7,7 @@ import { MdRemove } from "react-icons/md";
 
 const Watchlist = () => {
   return (
-    <div className="container-fluid">
+    <div className={`container-fluid ${styles.watchlistSize}`}>
       <div className="row">
         <div className="col-md-12">
           <div className={`${styles.watchlist}`}>

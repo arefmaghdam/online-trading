@@ -2,22 +2,24 @@
     margin-right: 0;
     color: grey;
     height: 35px;
+    padding-right: 0;
 }
 
-h4 {
+.user h4 {
     color: #00FF29;
-    margin-top: 5px;
-    margin-left:calc(60vh);
+    margin-top: 6px;
+    margin-left:calc(13vw);
     height: 35px;
 }
 
-h6 {
-    margin-top: 5px;
-    margin-left: calc(10vh);
+.user h6 {
+    margin-top: 7px;
+    margin-left: calc(1vw);
+    color: #ffffff;
 }
 
-h3 {
-    margin-top: 3px;
-    margin-left: calc(10vh);
+.user h3 {
+    margin-top: 4px;
+    margin-left: calc(2vw);
 }
 

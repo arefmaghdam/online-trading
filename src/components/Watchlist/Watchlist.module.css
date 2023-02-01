@@ -42,6 +42,7 @@
 .dropdown > h6 {
     font-size: 12px;
     font-weight: bold;
+    margin-left: 0;
 }
 
 .table > tbody > tr > td > div {
@@ -68,13 +69,18 @@
 }
 
 .removeWatchlist {
+    margin-right: 6px;
     padding: 2px 5px 0px 5px;
     background-color: #2E2E2E;
     color: #FFFFFF;
 }
 
 .editButtons {
-    padding-left: 25px;
-    margin-top: 10px;
+    padding-left: 20px;
+    margin-top: 17px;
+}
+
+.watchlistSize {
+    height: calc(100vh - 35px - 30vh);
 }
 
