@@ -13,7 +13,7 @@ const Watchlist = () => {
           <div className={`${styles.watchlist}`}>
             <span className={`${styles.watchlistHeader}`}>Watchlist</span>
             <div className="row">
-              <div className="col-md-8">
+              <div className="col-md-4">
                 <div className="dropdown">
                   <button
                     className={`btn dropdown ${styles.dropdown}`}
@@ -44,7 +44,7 @@ const Watchlist = () => {
                   </div>
                 </div>
               </div>
-              <div className={`col-md-4 ${styles.editButtons}`}>
+              <div className={`col-md-8 ${styles.editButtons}`}>
                 <button className={`btn ${styles.editWatchlist}`}>
                   <MdEdit />
                 </button>
@@ -59,15 +59,15 @@ const Watchlist = () => {
             <table className={`table ${styles.table}`}>
               <thead>
                 <tr>
-                  <th scope="col">Symbol</th>
-                  <th scope="col">Buy</th>
-                  <th scope="col">Sell</th>
-                  <th scope="col">Last Price</th>
+                  <th>Symbol</th>
+                  <th>Buy</th>
+                  <th>Sell</th>
+                  <th>Last Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td scope="row">
+                  <td>
                     BTC<div>(USDT)</div>
                   </td>
                   <td>16.2564</td>
@@ -77,7 +77,7 @@ const Watchlist = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">
+                  <td>
                     SHIBA<div>(USDT)</div>
                   </td>
                   <td>182.36542</td>
@@ -87,7 +87,7 @@ const Watchlist = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">
+                  <td>
                     ETC<div>(USDT)</div>
                   </td>
                   <td>25.32657</td>
