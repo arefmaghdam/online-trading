@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Watchlist.module.css";
-import { FaChevronDown } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";

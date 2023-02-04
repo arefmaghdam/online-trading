@@ -4,6 +4,7 @@ import Search from "../Search/Search";
 import User from "../User/User";
 import Watchlist from "../Watchlist/Watchlist";
 import Details from "../Details/Details";
+import Overview from "../Overview/Overview";
 
 const Layout = () => {
   return (
@@ -44,7 +45,9 @@ const Layout = () => {
       </div>
       <div className="row">
         <div className={`col-sm-4 ${styles.overview}`}>
-          <div className={`${styles.box} ${styles.color2}`}>overview</div>
+          <div className={`${styles.box} ${styles.color2}`}>
+            <Overview />
+          </div>
         </div>
         <div className={`col-sm-8  ${styles.report}`}>
           <div className={`${styles.box} ${styles.color2}`}>report</div>
