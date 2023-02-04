@@ -1,0 +1,26 @@
+.detailsHeader {
+  display: flex;
+  height: 100%;
+}
+
+.coin {
+  flex-grow: 80;
+  color: #ffffff;
+  margin-left: 7px;
+}
+
+.buySellButton {
+  flex-grow: 20;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+.coin > span {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.coin > span > p {
+    font-size: 10px;
+    color: #00ff29;
+}
