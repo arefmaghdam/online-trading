@@ -1,11 +1,10 @@
-import React, { Component } from "react";
 import Chart from "react-google-charts";
 import styles from "./PieChartComponent.module.css";
 const pieData = [
-  ["Task", "Hours per Day"],
+  ["Items", "Markets"],
   ["Blocked", 11],
-  ["Withdrawable", 2],
-  ["Pending", 2],
+  ["Withdrawable", 5],
+  ["Pending", 7],
   ["Profit/Loss", 2],
 ];
 const pieOptions = {
@@ -17,6 +16,8 @@ const pieOptions = {
     height: "78%",
     width: "100%",
   },
+  legend: {  alignment: 'center' }
+  
 };
 
 const PieChartComponent = () => {
