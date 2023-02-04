@@ -3,6 +3,7 @@ import Menu from "../Menu/Menu";
 import Search from "../Search/Search";
 import User from "../User/User";
 import Watchlist from "../Watchlist/Watchlist";
+import Details from "../Details/Details";
 
 const Layout = () => {
   return (
@@ -33,7 +34,9 @@ const Layout = () => {
           </div>
         </div>
         <div className={`col-sm-3  ${styles.details}`}>
-          <div className={`${styles.box} ${styles.color1}`}>details</div>
+          <div className={`${styles.box} ${styles.color1}`}>
+            <Details />
+          </div>
         </div>
         <div className={`col-sm-5  ${styles.orderbook}`}>
           <div className={`${styles.box} ${styles.color1}`}>orderbook</div>
