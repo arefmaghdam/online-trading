@@ -1,6 +1,10 @@
+.detailsContainer {
+  height: 100%;
+  overflow: hidden;
+}
+
 .detailsHeader {
   display: flex;
-  height: 100%;
 }
 
 .coin {
@@ -16,11 +20,43 @@
 }
 
 .coin > span {
-    font-size: 12px;
-    color: #ffffff;
+  font-size: 12px;
+  color: #ffffff;
 }
 
 .coin > span > p {
-    font-size: 10px;
-    color: #00ff29;
+  font-size: 10px;
+  color: #00ff29;
+}
+
+.detailsTable {
+  display: flex;
+}
+
+.detailsTableItems {
+  flex-grow: 100;
+}
+
+.table {
+  color: #fff;
+  font-size: 12px;
+  border: hidden;
+}
+
+.table > tbody > tr {
+  border: hidden;
+}
+
+.table > tbody > tr > td {
+  padding: 0 0 0 12px;
+  padding-bottom: 20px;
+}
+
+.table > tbody > tr > td > div {
+  font-size: 10px;
+}
+
+.table > tbody > tr > td > p {
+  font-size: 10px;
+  color: #ffffff;
 }
