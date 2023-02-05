@@ -90,11 +90,14 @@
   /* flex:1 1 auto; */
   flex-grow: 1;
   padding-right: 10px;
+  margin-right: 6px;
+  background-color: #2e2e2e;
+  border-radius: 0.25rem;
 }
 
 .select select {
   width: 100%;
-  background: #353535;
+  background: #2e2e2e;
   border: 0;
   color: #fff;
 }

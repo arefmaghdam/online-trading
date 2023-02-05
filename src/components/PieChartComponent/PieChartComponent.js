@@ -12,12 +12,12 @@ const pieOptions = {
   backgroundColor: "#3D3D3D",
   chartArea: {
     left: "1%",
-    top: "1%",
-    height: "78%",
+    top: "3%",
+    height: "74%",
     width: "100%",
   },
-  legend: {  alignment: 'center' }
-  
+  legend: { alignment: "center" },
+  color:"red"
 };
 
 const PieChartComponent = () => {
