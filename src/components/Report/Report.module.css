@@ -34,10 +34,6 @@
   flex-grow: 15;
 }
 
-.barChart {
-  flex-grow: 15;
-}
-
 .tableContent {
   color: #fff;
   font-size: 12px;
@@ -55,5 +51,10 @@
 
 .tableContent > tbody > tr > td {
   padding: 0 0 0 12px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.tableContent > thead > tr > th > div {
+  margin-left: 50px;
+  margin-right: 50px;
 }

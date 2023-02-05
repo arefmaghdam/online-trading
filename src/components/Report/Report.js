@@ -22,6 +22,9 @@ const Report = () => {
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Status</th>
+                <th>
+                  <div>Progress</div>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -33,6 +36,9 @@ const Report = () => {
                 <td>22-12-2022 12:35 AM</td>
                 <td>26-12-2022 16:18 AM</td>
                 <td>Executing</td>
+                <td>
+                  <ProgressBar />
+                </td>
               </tr>
               <tr>
                 <td>BTC-USDT</td>
@@ -42,6 +48,9 @@ const Report = () => {
                 <td>22-12-2022 12:45 AM</td>
                 <td>27-12-2022 16:18 AM</td>
                 <td>Executing</td>
+                <td>
+                  <ProgressBar />
+                </td>
               </tr>
               <tr>
                 <td>SHIBA-USDT</td>
@@ -51,11 +60,13 @@ const Report = () => {
                 <td>23-12-2022 17:45 AM</td>
                 <td>24-12-2022 21:28 AM</td>
                 <td>Pending</td>
+                <td>
+                  <ProgressBar />
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className={styles.barChart}><ProgressBar/></div>
       </div>
     </div>
   );
