@@ -7,14 +7,28 @@
 }
 
 .report {
-    display: flex;
-    list-style: none;
-    color: #fff;
-    padding-left: 0;
+  display: flex;
+  list-style: none;
+  color: #fff;
+  padding-left: 0;
 }
 
 .report li {
-    flex-direction: column;
-    padding: 7px;
-    font-size: 0.9rem;
+  flex-direction: column;
+  padding: 7px;
+  font-size: 0.9rem;
+}
+
+.reportContent {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.table {
+  flex-grow: 9;
+}
+
+.barChart {
+  flex-grow: 2;
 }
