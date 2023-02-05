@@ -4,7 +4,7 @@ const ProgressBar = () => {
     return (
       <div  className={styles.containerStyles}>
         <div className={styles.fillerStyles}>
-          <div  className={styles.labelStyles}>50%</div>
+          <div  className={styles.labelStyles}>100%</div>
         </div>
       </div>
     );

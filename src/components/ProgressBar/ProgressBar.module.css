@@ -8,14 +8,14 @@
 
 .fillerStyles {
   height: 100%;
-  width: 50%;
+  width: 100%;
   background-color: blueviolet;
   border-radius: inherit;
   text-align: right;
 }
 
 .labelStyles {
-  color: blue;
+  color: #fff;
   font-weight: bold;
   font-size: 10px;
 }
