@@ -1,3 +1,4 @@
+import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 
 const Report = () => {
@@ -54,7 +55,7 @@ const Report = () => {
             </tbody>
           </table>
         </div>
-        <div className={styles.barChart}>Chart</div>
+        <div className={styles.barChart}><ProgressBar/></div>
       </div>
     </div>
   );

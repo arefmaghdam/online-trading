@@ -1,0 +1,22 @@
+.containerStyles {
+    height: 15px;
+    width: 70%;
+    background-color: aquamarine;
+    border-radius: 15px;
+    margin: 45px;
+}
+
+.fillerStyles {
+    height: 100%;
+    width: 50%;
+    background-color: blueviolet;
+    border-radius: inherit;
+    text-align: right;
+}
+
+.labelStyles {
+    color: blue;
+    font-weight: bold;
+    font-size: 10px;
+    
+}
