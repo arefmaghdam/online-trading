@@ -1,3 +1,9 @@
+.reportComponent {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
 .reportMenu {
   height: 35px;
   width: 100%;
@@ -22,13 +28,32 @@
 .reportContent {
   display: flex;
   justify-content: flex-start;
-  height: 100%;
 }
 
 .table {
-  flex-grow: 9;
+  flex-grow: 15;
 }
 
 .barChart {
-  flex-grow: 2;
+  flex-grow: 15;
+}
+
+.tableContent {
+  color: #fff;
+  font-size: 12px;
+  border: hidden;
+}
+
+.tableContent > thead {
+  border: hidden;
+}
+
+.tableContent > tbody > tr {
+  border: hidden;
+  height: 100%;
+}
+
+.tableContent > tbody > tr > td {
+  padding: 0 0 0 12px;
+  padding-bottom: 15px;
 }
