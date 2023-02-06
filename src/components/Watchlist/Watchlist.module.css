@@ -5,6 +5,20 @@
   display: block;
 }
 
+.titleContainer {
+  height: 30px;
+}
+
+.toolbarContainer {
+  height: 30px;
+}
+
+.tableContainer {
+  height: calc(100% - 25px - 30px);
+  width: 100%;
+  overflow-y: scroll;
+}
+
 .table {
   color: #fff;
   font-size: 12px;
