@@ -11,6 +11,7 @@ const Orderbook = () => {
             <th>Price</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Total Quantity</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -27,6 +29,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -34,6 +37,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -41,6 +45,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -48,6 +53,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -55,6 +61,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -62,6 +69,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -69,6 +77,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -76,6 +85,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -83,6 +93,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -90,6 +101,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -97,6 +109,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -104,6 +117,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -111,6 +125,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
           <tr>
             <td>352.148</td>
@@ -118,6 +133,7 @@ const Orderbook = () => {
             <td>16.715</td>
             <td>16.716</td>
             <td>250</td>
+            <td>352.148</td>
           </tr>
         </tbody>
       </table>
