@@ -1,40 +1,40 @@
 .Orderbook {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 .table {
-    color: #fff;
-    font-size: 12px;
-    font-weight: 100;
-    border: hidden;
-  }
-  
-  .table > thead {
-    border: hidden;
-  }
-  
-  .table > tbody > tr {
-    border: hidden;
-    height: 100%;
-  }
-  
-  .table > tbody > tr > td {
-    padding: 0 0 6px 12px;
-  }
+  color: #fff;
+  font-size: 12px;
+  font-weight: 100;
+  border: hidden;
+}
 
-  .table > tbody > tr > td:nth-child(2) {
-        color: #00FF29;
-  }
+.table > thead {
+  border: hidden;
+}
 
-  .table > tbody > tr > td:nth-child(3) {
-    color: #00FF29;
+.table > tbody > tr {
+  border: hidden;
+  height: 100%;
+}
+
+.table > tbody > tr > td {
+  padding: 0 0 6px 12px;
+}
+
+.table > tbody > tr > td:nth-child(2) {
+  color: #00ff29;
+}
+
+.table > tbody > tr > td:nth-child(3) {
+  color: #00ff29;
 }
 
 .table > tbody > tr > td:nth-child(4) {
-    color: #FF0000;
+  color: #ff0000;
 }
 
 .table > tbody > tr > td:nth-child(5) {
-    color: #FF0000;
+  color: #ff0000;
 }
