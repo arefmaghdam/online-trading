@@ -119,13 +119,6 @@ const Orderbook = () => {
             <td>16.716</td>
             <td>250</td>
           </tr>
-          <tr>
-            <td>352.148</td>
-            <td>252.148</td>
-            <td>16.715</td>
-            <td>16.716</td>
-            <td>250</td>
-          </tr>
         </tbody>
       </table>
     </div>
