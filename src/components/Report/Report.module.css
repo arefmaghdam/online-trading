@@ -28,6 +28,8 @@
 .reportContent {
   display: flex;
   justify-content: flex-start;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .table {
