@@ -16,8 +16,13 @@ const pieOptions = {
     height: "74%",
     width: "100%",
   },
-  legend: { alignment: "center" },
-  color:"red"
+  legend: { alignment: "center", textStyle: { color: "white" } },
+  slices: {
+    0: { color: "#fa6161" },
+    1: { color: "rgb(70, 189, 6)" },
+    2: { color: "#fbc223" },
+    3: { color: "#248bf3" },
+  },
 };
 
 const PieChartComponent = () => {

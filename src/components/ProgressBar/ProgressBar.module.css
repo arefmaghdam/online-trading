@@ -1,15 +1,15 @@
 .containerStyles {
   height: 15px;
   width: 90%;
-  background-color: aquamarine;
+  background-color: rgb(160, 252, 222);
   border-radius: 15px;
   margin: 4px;
 }
 
 .fillerStyles {
   height: 100%;
-  width: 100%;
-  background-color: blueviolet;
+  width: 80%;
+  background-color: rgb(179, 97, 255);
   border-radius: inherit;
   text-align: right;
 }
