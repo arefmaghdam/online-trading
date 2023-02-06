@@ -7,6 +7,7 @@ import Details from "../Details/Details";
 import Overview from "../Overview/Overview";
 import Report from "../Report/Report";
 import Orderbook from "../Orderbook/Orderbook";
+import { FaChevronRight } from "react-icons/fa";
 
 const Layout = () => {
   return (
@@ -37,7 +38,8 @@ const Layout = () => {
           </div>
         </div>
         <div className={`col-sm-3  ${styles.details}`}>
-          <div className={`${styles.box} ${styles.color1}`}>
+          <div className={`${styles.box2} ${styles.color1}`}>
+            <div className={styles.sideMenu}><FaChevronRight/></div>
             <Details />
           </div>
         </div>
