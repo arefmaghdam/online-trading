@@ -6,6 +6,7 @@ import Watchlist from "../Watchlist/Watchlist";
 import Details from "../Details/Details";
 import Overview from "../Overview/Overview";
 import Report from "../Report/Report";
+import Orderbook from "../Orderbook/Orderbook";
 
 const Layout = () => {
   return (
@@ -41,7 +42,7 @@ const Layout = () => {
           </div>
         </div>
         <div className={`col-sm-5  ${styles.orderbook}`}>
-          <div className={`${styles.box} ${styles.color1}`}>orderbook</div>
+          <div className={`${styles.box} ${styles.color1}`}><Orderbook/></div>
         </div>
       </div>
       <div className="row">
