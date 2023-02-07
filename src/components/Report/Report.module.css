@@ -26,10 +26,9 @@
 }
 
 .reportContent {
-  display: flex;
-  justify-content: flex-start;
   overflow-y: scroll;
-  height: 100%;
+  margin-right: 6px;
+  height: calc(100% - 35px);
 }
 
 .table {

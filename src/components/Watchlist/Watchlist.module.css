@@ -2,7 +2,6 @@
   color: #ffffff;
   font-size: 15px;
   margin-bottom: 10px;
-  display: block;
 }
 
 .titleContainer {
@@ -14,7 +13,8 @@
 }
 
 .tableContainer {
-  height: calc(100% - 25px - 30px);
+  position: absolute;
+  height: calc(100% - 60px);
   width: 100%;
   overflow-y: scroll;
 }
@@ -37,10 +37,6 @@
 
 .table > tbody > tr > td {
   padding: 0 0 0 12px;
-}
-
-.watchlist {
-  margin-top: 5px;
 }
 
 .dropdown {
@@ -92,8 +88,8 @@
 
 .watchlistSize {
   height: 100%;
-  padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
+  position: relative;
 }
 
 .toolbar {
