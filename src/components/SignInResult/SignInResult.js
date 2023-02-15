@@ -1,8 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import queryString from "query-string";
 
 const SignInResult = () => {
-    return <div>signin result</div>
+  debugger;
+  const parsed = queryString.parse(window.location.search);
+  localStorage.setItem("currentToken", parsed.access_token);
+  console.log(parsed.access_token);
+  window.location.href = "/";
 };
 
 export default SignInResult;
