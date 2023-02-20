@@ -5,32 +5,32 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [symbol, setSymbol] = useState();
+  const [symbols, setSymbols] = useState([]);
+
   useEffect(() => {
     const token = localStorage.getItem("currentToken");
+
     axios
-      .get("https://ot-api.eltak.ir/MarketData/Symbol", {
+      .get("https://ot-api.eltak.ir/MarketData/Symbol/Lightweight", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
-        setSymbol(response.data.data);
+        setSymbols(response.data.data);
       })
       .catch((err) => {
         if (err.response.status === 401)
           window.location.href = "https://ot-api.eltak.ir/bff/login";
       });
   }, []);
+
   return (
     <Typeahead
+      id="searchInput"
       className={styles.search}
-      labelKey={(option) => option.symbolName}
-      options={[
-        { id: "1", symbolName: "BTC-USDT" },
-        { id: "2", symbolName: "ETC-USDT" },
-        { id: "3", symbolName: "XMR-USDT" },
-      ]}
+      labelKey={(option) => option.symbolId}
+      options={symbols}
       size="sm"
     />
   );

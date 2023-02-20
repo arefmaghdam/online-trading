@@ -15,8 +15,8 @@ const Watchlist = () => {
         </div>
         <div className={`row ${styles.toolbarContainer}`}>
           <div className="col-md-12">
-            <div class={styles.toolbar}>
-              <div class={styles.select}>
+            <div className={styles.toolbar}>
+              <div className={styles.select}>
                 <select>
                   <option>BTC-USDT</option>
                   <option>SHIBA-USDT</option>
