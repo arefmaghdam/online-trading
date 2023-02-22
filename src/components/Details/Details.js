@@ -1,7 +1,9 @@
 import React from "react";
+import useDetails from "../../hooks/useDetails";
 import styles from "./Details.module.css";
 
 const Details = () => {
+  const [details] = useDetails();
   return (
     <div className={styles.detailsContainer}>
       <div className={styles.detailsHeader}>
