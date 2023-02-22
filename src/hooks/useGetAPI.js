@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const useGetAPI = (apiUrl, defaultValue) => {
-  const [symbols, setSymbols] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("currentToken");
     axios
@@ -12,8 +12,7 @@ const useGetAPI = (apiUrl, defaultValue) => {
         },
       })
       .then((response) => {
-        setSymbols(response.data.data);
-        console.log(symbols);
+        setData(response.data.data);
       })
       .catch((err) => {
         if (err.response.status === 401)
@@ -21,6 +20,6 @@ const useGetAPI = (apiUrl, defaultValue) => {
       });
   }, []);
 
-  return [symbols];
+  return [data];
 };
 export default useGetAPI;
