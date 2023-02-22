@@ -1,0 +1,2 @@
+useGetAPI = () => {};
+export default useGetAPI;
