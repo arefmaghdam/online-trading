@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const useGetAPI = (apiUrl, defaultValue) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(defaultValue);
   useEffect(() => {
     const token = localStorage.getItem("currentToken");
     axios

@@ -2,8 +2,8 @@ import useGetAPI from "./useGetAPI";
 
 const useDetails = () => {
   const [details] = useGetAPI(
-    "https://ot-api.eltak.ir/MarketData/Symbol/Price",
-    []
+    "https://ot-api.eltak.ir/MarketData/Symbol/Price/BTC-USDT",
+    {}
   );
   return [details];
 };
