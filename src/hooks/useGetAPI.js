@@ -12,11 +12,17 @@ const useGetAPI = (apiUrl, defaultValue) => {
         },
       })
       .then((response) => {
-        setData(response.data.data);
+        if (response.data.status == false) {
+          alert(response.data.errorMessage);
+        } else {
+          setData(response.data.data);
+        }
       })
       .catch((err) => {
         if (err.response.status === 401)
           window.location.href = "https://ot-api.eltak.ir/bff/login";
+        else 
+          alert('Undefined exception: ' + JSON.stringify(err))
       });
   }, []);
 
