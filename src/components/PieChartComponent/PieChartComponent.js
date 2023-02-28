@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
+import useOverview from "../../hooks/useOverview";
 import styles from "./PieChartComponent.module.css";
 const pieData = [
   ["Items", "Markets"],
@@ -26,6 +28,12 @@ const pieOptions = {
 };
 
 const PieChartComponent = () => {
+  const [overview] = useOverview({});
+  const [overviewData, setOverviewData] = useState([]);
+  useEffect(() => {
+    if (overview == undefined) return;
+    console.log(overview);
+  }, [overview]);
   return (
     <div className={styles.chart}>
       <Chart
