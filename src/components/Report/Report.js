@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
+import useOrders from "../../hooks/useOrders";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 
 const Report = () => {
+  const [orders] = useOrders([]);
+  const [ordersData, setOredrsData] = useState([]);
+  useEffect(() => {
+    if (orders == undefined) return;
+    setOredrsData(orders);
+  }, [orders]);
   return (
     <div className={styles.reportComponent}>
       <div className={styles.reportMenu}>
@@ -28,18 +36,22 @@ const Report = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>BTC-USDT</td>
-                <td>0.000514</td>
-                <td>16.75105</td>
-                <td>Buy</td>
-                <td>22-12-2022 12:35 AM</td>
-                <td>26-12-2022 16:18 AM</td>
-                <td>Executing</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
+              {ordersData.map((item) => {
+                return (
+                  <tr key={item.id}>
+                    <td>{item.symbolId}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.price}</td>
+                    <td>{item.orderSide}</td>
+                    <td>{item.createdAt}</td>
+                    <td>{item.updatedAt}</td>
+                    <td>{item.status}</td>
+                    <td>
+                      <ProgressBar />
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
