@@ -33,14 +33,18 @@ const Orderbook = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>352.148</td>
-            <td>252.148</td>
-            <td>16.715</td>
-            <td>16.716</td>
-            <td>250</td>
-            <td>352.148</td>
-          </tr>
+          {orderbookData.map((item) => {
+            return (
+              <tr key={item.ask.price}>
+                <td>{item.ask.totalQuantity}</td>
+                <td>{item.ask.quantity}</td>
+                <td>{item.ask.price}</td>
+                <td>{item.bid.price}</td>
+                <td>{item.bid.quantity}</td>
+                <td>{item.bid.totalQuantity}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
