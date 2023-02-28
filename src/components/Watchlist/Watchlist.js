@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Watchlist.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
+import useWatchLightweights from "../../hooks/useWatchLightweights";
 
 const Watchlist = () => {
+  const [watchsymbols] = useWatchLightweights([]);
+  const [watchsymbolsData, setwatchsymbolsData] = useState([]);
+  useEffect(() => {
+    if (watchsymbols == undefined) return;
+    setwatchsymbolsData(watchsymbols);
+    console.log(watchsymbolsData);
+  }, [watchsymbols]);
   return (
     <div className={styles.watchlistSize}>
       <div className="container-fluid">
