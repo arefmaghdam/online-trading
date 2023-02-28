@@ -27,7 +27,7 @@ const PieChartComponent = () => {
     legend: { alignment: "center", textStyle: { color: "white" } },
     slices: {
       0: { color: "#fa6161" },
-      1: { color: "rgb(70, 189, 6)" }
+      1: { color: "rgb(70, 189, 6)" },
     },
   };
   return (
