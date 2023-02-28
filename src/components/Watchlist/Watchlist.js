@@ -11,7 +11,6 @@ const Watchlist = () => {
   useEffect(() => {
     if (watchsymbols == undefined) return;
     setwatchsymbolsData(watchsymbols);
-    console.log(watchsymbolsData);
   }, [watchsymbols]);
   return (
     <div className={styles.watchlistSize}>
@@ -26,9 +25,9 @@ const Watchlist = () => {
             <div className={styles.toolbar}>
               <div className={styles.select}>
                 <select>
-                  <option>BTC-USDT</option>
-                  <option>SHIBA-USDT</option>
-                  <option>ETC-USDT</option>
+                  {watchsymbolsData.map((item) => {
+                    return <option>{item.name}</option>;
+                  })}
                 </select>
               </div>
               <div>
@@ -66,116 +65,6 @@ const Watchlist = () => {
                     <td>16.2357</td>
                     <td>
                       15.2368<p>+15.2%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      SHIBA<div>(USDT)</div>
-                    </td>
-                    <td>182.36542</td>
-                    <td>182.58791</td>
-                    <td>
-                      182.59473<p>+1.75%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      ETC<div>(USDT)</div>
-                    </td>
-                    <td>25.32657</td>
-                    <td>25.25987</td>
-                    <td>
-                      25.32657<p>+7%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      BTC<div>(USDT)</div>
-                    </td>
-                    <td>16.2564</td>
-                    <td>16.2357</td>
-                    <td>
-                      15.2368<p>+15.2%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      SHIBA<div>(USDT)</div>
-                    </td>
-                    <td>182.36542</td>
-                    <td>182.58791</td>
-                    <td>
-                      182.59473<p>+1.75%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      ETC<div>(USDT)</div>
-                    </td>
-                    <td>25.32657</td>
-                    <td>25.25987</td>
-                    <td>
-                      25.32657<p>+7%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      BTC<div>(USDT)</div>
-                    </td>
-                    <td>16.2564</td>
-                    <td>16.2357</td>
-                    <td>
-                      15.2368<p>+15.2%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      SHIBA<div>(USDT)</div>
-                    </td>
-                    <td>182.36542</td>
-                    <td>182.58791</td>
-                    <td>
-                      182.59473<p>+1.75%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      ETC<div>(USDT)</div>
-                    </td>
-                    <td>25.32657</td>
-                    <td>25.25987</td>
-                    <td>
-                      25.32657<p>+7%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      BTC<div>(USDT)</div>
-                    </td>
-                    <td>16.2564</td>
-                    <td>16.2357</td>
-                    <td>
-                      15.2368<p>+15.2%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      SHIBA<div>(USDT)</div>
-                    </td>
-                    <td>182.36542</td>
-                    <td>182.58791</td>
-                    <td>
-                      182.59473<p>+1.75%</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      ETC<div>(USDT)</div>
-                    </td>
-                    <td>25.32657</td>
-                    <td>25.25987</td>
-                    <td>
-                      25.32657<p>+7%</p>
                     </td>
                   </tr>
                 </tbody>
