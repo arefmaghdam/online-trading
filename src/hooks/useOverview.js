@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useGetAPI from "./useGetAPI";
 
 const useOverview = () => {

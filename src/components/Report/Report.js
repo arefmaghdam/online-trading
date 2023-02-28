@@ -40,66 +40,6 @@ const Report = () => {
                   <ProgressBar />
                 </td>
               </tr>
-              <tr>
-                <td>BTC-USDT</td>
-                <td>0.000035</td>
-                <td>16.75008</td>
-                <td>Buy</td>
-                <td>22-12-2022 12:45 AM</td>
-                <td>27-12-2022 16:18 AM</td>
-                <td>Executing</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
-              <tr>
-                <td>SHIBA-USDT</td>
-                <td>751</td>
-                <td>2.35126</td>
-                <td>Sell</td>
-                <td>23-12-2022 17:45 AM</td>
-                <td>24-12-2022 21:28 AM</td>
-                <td>Pending</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
-              <tr>
-                <td>SHIBA-USDT</td>
-                <td>751</td>
-                <td>2.35126</td>
-                <td>Sell</td>
-                <td>23-12-2022 17:45 AM</td>
-                <td>24-12-2022 21:28 AM</td>
-                <td>Pending</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
-              <tr>
-                <td>SHIBA-USDT</td>
-                <td>751</td>
-                <td>2.35126</td>
-                <td>Sell</td>
-                <td>23-12-2022 17:45 AM</td>
-                <td>24-12-2022 21:28 AM</td>
-                <td>Pending</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
-              <tr>
-                <td>SHIBA-USDT</td>
-                <td>751</td>
-                <td>2.35126</td>
-                <td>Sell</td>
-                <td>23-12-2022 17:45 AM</td>
-                <td>24-12-2022 21:28 AM</td>
-                <td>Pending</td>
-                <td>
-                  <ProgressBar />
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
