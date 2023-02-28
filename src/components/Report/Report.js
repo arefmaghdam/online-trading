@@ -7,7 +7,7 @@ const Report = () => {
   const [orders] = useOrders([]);
   const [ordersData, setOredrsData] = useState([]);
   useEffect(() => {
-    if (orders == undefined) return;
+    if (orders === undefined) return;
     setOredrsData(orders);
   }, [orders]);
   return (
