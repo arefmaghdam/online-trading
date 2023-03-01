@@ -4,14 +4,22 @@ import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
 import useWatchLightweights from "../../hooks/useWatchLightweights";
+import useWatchItems from "../../hooks/useWatchItems";
 
 const Watchlist = () => {
-  const [watchsymbols] = useWatchLightweights([]);
+  const [watchsymbols] = useWatchLightweights();
+  const [watchItems] = useWatchItems();
   const [watchsymbolsData, setwatchsymbolsData] = useState([]);
+  const [watchData, setWatchData] = useState([]);
   useEffect(() => {
     if (watchsymbols == undefined) return;
     setwatchsymbolsData(watchsymbols);
   }, [watchsymbols]);
+  useEffect(() => {
+    if (watchItems.watchListItems == undefined) return;
+    setWatchData(watchItems.watchListItems);
+    console.log(watchData);
+  }, [watchItems]);
   return (
     <div className={styles.watchlistSize}>
       <div className="container-fluid">
@@ -26,7 +34,7 @@ const Watchlist = () => {
               <div className={styles.select}>
                 <select>
                   {watchsymbolsData.map((item) => {
-                    return <option>{item.name}</option>;
+                    return <option key={item.id}>{item.name}</option>;
                   })}
                 </select>
               </div>
@@ -57,16 +65,20 @@ const Watchlist = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      BTC<div>(USDT)</div>
-                    </td>
-                    <td>16.2564</td>
-                    <td>16.2357</td>
-                    <td>
-                      15.2368<p>+15.2%</p>
-                    </td>
-                  </tr>
+                  {watchData.map((item) => {
+                    return (
+                      <tr key={item.lastPrice}>
+                        <td>
+                        {item.symbolId}<div>{item.symbolId}</div>
+                        </td>
+                        <td>{item.symbolId}</td>
+                        <td>{item.symbolId}</td>
+                        <td>
+                        {item.symbolId}<p>{item.symbolId}</p>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

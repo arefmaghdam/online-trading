@@ -4,7 +4,7 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 
 const Report = () => {
-  const [orders] = useOrders([]);
+  const [orders] = useOrders();
   const [ordersData, setOredrsData] = useState([]);
   useEffect(() => {
     if (orders === undefined) return;

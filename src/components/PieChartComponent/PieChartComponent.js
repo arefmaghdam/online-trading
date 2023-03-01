@@ -4,7 +4,7 @@ import useOverview from "../../hooks/useOverview";
 import styles from "./PieChartComponent.module.css";
 
 const PieChartComponent = () => {
-  const [overview] = useOverview({});
+  const [overview] = useOverview();
   const [overviewData, setOverviewData] = useState([]);
   useEffect(() => {
     if (overview == undefined) return;

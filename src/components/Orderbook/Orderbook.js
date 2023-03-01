@@ -3,7 +3,7 @@ import useOrderbook from "../../hooks/useOrderbook";
 import styles from "./Orderbook.module.css";
 
 const Orderbook = () => {
-  const [orderbook] = useOrderbook({});
+  const [orderbook] = useOrderbook();
   const [orderbookData, setOrderbookData] = useState([]);
   useEffect(() => {
     if (orderbook.bids == undefined) return;
