@@ -33,12 +33,16 @@
 }
 
 .tab {
-  margin-left: 25px;
   padding-left: 15px;
   padding-right: 15px;
   flex-direction: column;
-  padding: 7px;
+  padding: 7px 20px;
   font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #434343;
 }
 
 .sideMenu {
