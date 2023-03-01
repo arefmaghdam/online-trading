@@ -62,7 +62,14 @@
 
 .table > tbody > tr > td > p {
   font-size: 10px;
+}
+
+.greenColor {
   color: #00ff29;
+}
+
+.redColor {
+  color: red;
 }
 
 .editWatchlist {
