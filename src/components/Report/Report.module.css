@@ -1,33 +1,4 @@
-.reportComponent {
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-}
-
-.reportMenu {
-  height: 35px;
-  width: 100%;
-  margin: 0;
-  background-color: #474747;
-  border-radius: 3px 3px 0 0;
-}
-
-.report {
-  display: flex;
-  list-style: none;
-  color: #fff;
-  padding-left: 0;
-}
-
-.report li {
-  flex-direction: column;
-  padding: 7px;
-  font-size: 0.9rem;
-}
-
 .reportContent {
-  overflow-y: scroll;
-  margin-right: 6px;
   height: calc(100% - 35px);
 }
 

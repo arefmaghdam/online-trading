@@ -3,6 +3,44 @@
   height: 100vh;
 }
 
+.tabContainer {
+  height: 35px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  background-color: #474747;
+  border-radius: 3px;
+}
+
+.reportComponent {
+  overflow: hidden;
+  width: 100%;
+}
+
+.orders {
+  width: 100%;
+  height: calc(19vh);
+  overflow-y: scroll;
+  position: absolute;
+}
+
+.tabs {
+  display: flex;
+  list-style: none;
+  color: #fff;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.tab {
+  margin-left: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-direction: column;
+  padding: 7px;
+  font-size: 0.9rem;
+}
+
 .sideMenu {
   height: 100%;
   width: 12px;
@@ -26,7 +64,7 @@
 }
 
 .box1 {
-  padding: 0 0 6px 0;
+  padding: 6px;
   height: 100%;
   border-radius: 3px;
 }
