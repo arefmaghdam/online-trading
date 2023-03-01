@@ -68,13 +68,12 @@ const Watchlist = () => {
                   {watchData.map((item) => {
                     return (
                       <tr key={item.lastPrice}>
-                        <td>
-                        {item.symbolId}<div>{item.symbolId}</div>
-                        </td>
                         <td>{item.symbolId}</td>
-                        <td>{item.symbolId}</td>
+                        <td>{item.bestAskPrice}</td>
+                        <td>{item.bestBidPrice}</td>
                         <td>
-                        {item.symbolId}<p>{item.symbolId}</p>
+                          {item.lastPrice}
+                          <p className={item.changePercentage>=0 ? styles.greenColor : styles.redColor}>{item.changePercentage}</p>
                         </td>
                       </tr>
                     );
