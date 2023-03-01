@@ -18,7 +18,6 @@ const Watchlist = () => {
   useEffect(() => {
     if (watchItems.watchListItems == undefined) return;
     setWatchData(watchItems.watchListItems);
-    console.log(watchData);
   }, [watchItems]);
   return (
     <div className={styles.watchlistSize}>
@@ -73,7 +72,15 @@ const Watchlist = () => {
                         <td>{item.bestBidPrice}</td>
                         <td>
                           {item.lastPrice}
-                          <p className={item.changePercentage>=0 ? styles.greenColor : styles.redColor}>{item.changePercentage}</p>
+                          <p
+                            className={
+                              item.changePercentage >= 0
+                                ? styles.greenColor
+                                : styles.redColor
+                            }
+                          >
+                            {item.changePercentage}
+                          </p>
                         </td>
                       </tr>
                     );
