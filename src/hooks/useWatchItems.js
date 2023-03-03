@@ -1,8 +1,8 @@
 import useGetAPI from "./useGetAPI";
 
-const useWatchItems = () => {
+const useWatchItems = (id) => {
   const [watchItems] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/WatchList/WatchList/4",
+    "https://ot.api.kub.aghdam.nl/WatchList/WatchList/" + id,
     {}
   );
   return [watchItems];

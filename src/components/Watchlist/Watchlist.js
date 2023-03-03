@@ -1,24 +1,61 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import useWatchLightweights from "../../hooks/useWatchLightweights";
+import useWatchItems from "../../hooks/useWatchItems";
 import styles from "./Watchlist.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
-import useWatchLightweights from "../../hooks/useWatchLightweights";
-import useWatchItems from "../../hooks/useWatchItems";
 
 const Watchlist = () => {
-  const [watchsymbols] = useWatchLightweights();
-  const [watchItems] = useWatchItems();
-  const [watchsymbolsData, setwatchsymbolsData] = useState([]);
-  const [watchData, setWatchData] = useState([]);
+  const [lightweightId, setLightweightId] = useState(1);
+
+  const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
+  const [watchData, setWatchData] = useState([]); // Table
+
+  const [watchSymbols] = useWatchLightweights();
+  let [watchItems] = useWatchItems(lightweightId);
+
   useEffect(() => {
-    if (watchsymbols == undefined) return;
-    setwatchsymbolsData(watchsymbols);
-  }, [watchsymbols]);
+    const token = localStorage.getItem("currentToken");
+    axios
+      .get(
+        `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.status === false) {
+          alert(response.data.errorMessage);
+        } else {
+          setWatchData(response.data.data.watchListItems);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 401)
+          window.location.href = "https://ot.api.kub.aghdam.nl/bff/login";
+        else alert("Undefined exception: " + JSON.stringify(err));
+      });
+  }, [lightweightId]);
+
+  useEffect(() => {
+    if (watchSymbols == undefined) return;
+    setWatchSymbolsData(watchSymbols);
+  }, [watchSymbols]);
+
   useEffect(() => {
     if (watchItems.watchListItems == undefined) return;
     setWatchData(watchItems.watchListItems);
   }, [watchItems]);
+
+  const getLightweightId = (e) => {
+    let selectId = e.target.value;
+    setLightweightId(selectId);
+  };
+
   return (
     <div className={styles.watchlistSize}>
       <div className="container-fluid">
@@ -31,9 +68,13 @@ const Watchlist = () => {
           <div className="col-md-12">
             <div className={styles.toolbar}>
               <div className={styles.select}>
-                <select>
-                  {watchsymbolsData.map((item) => {
-                    return <option key={item.id}>{item.name}</option>;
+                <select id="mySelect" onChange={getLightweightId}>
+                  {watchSymbolsData.map((item) => {
+                    return (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
