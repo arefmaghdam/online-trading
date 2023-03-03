@@ -2,7 +2,7 @@ import useGetAPI from "./useGetAPI";
 
 const useOverview = () => {
   const [overview] = useGetAPI(
-    "https://ot-api.eltak.ir/WalletManagement/Wallet",
+    "https://ot.api.kub.aghdam.nl/WalletManagement/Wallet",
     {}
   );
   return [overview];

@@ -12,7 +12,7 @@ const useGetAPI = (apiUrl, defaultValue) => {
         },
       })
       .then((response) => {
-        if (response.data.status == false) {
+        if (response.data.status === false) {
           alert(response.data.errorMessage);
         } else {
           setData(response.data.data);
@@ -20,7 +20,7 @@ const useGetAPI = (apiUrl, defaultValue) => {
       })
       .catch((err) => {
         if (err.response.status === 401)
-          window.location.href = "https://ot-api.eltak.ir/bff/login";
+          window.location.href = "https://ot.api.kub.aghdam.nl/bff/login";
         else 
           alert('Undefined exception: ' + JSON.stringify(err))
       });

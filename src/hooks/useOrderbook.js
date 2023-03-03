@@ -3,7 +3,7 @@ import useGetAPI from "./useGetAPI";
 
 const useOrderbook = () => {
   const [orderbook] = useGetAPI(
-    "https://ot-api.eltak.ir/MarketData/Bestlimit/BTC-USDT",
+    "https://ot.api.kub.aghdam.nl/MarketData/Bestlimit/BTC-USDT",
     {}
   );
 
