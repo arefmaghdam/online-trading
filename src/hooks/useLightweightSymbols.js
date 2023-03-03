@@ -1,8 +1,9 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useLightweightSymbols = () => {
   const [symbols] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/MarketData/Symbol/Lightweight",
+    `${config.OT_URL}MarketData/Symbol/Lightweight`,
     []
   );
   return [symbols];

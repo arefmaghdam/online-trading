@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useOrderbook = () => {
   const [orderbook] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/MarketData/Bestlimit/BTC-USDT",
+    `${config.OT_URL}MarketData/Bestlimit/BTC-USDT`,
     {}
   );
 

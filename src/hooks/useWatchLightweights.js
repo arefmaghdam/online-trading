@@ -1,11 +1,11 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useWatchLightweights = () => {
   const [watchLightweights] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/WatchList/WatchList/Lightweight",
+    `${config.OT_URL}WatchList/WatchList/Lightweight`,
     []
   );
   return [watchLightweights];
 };
 export default useWatchLightweights;
-

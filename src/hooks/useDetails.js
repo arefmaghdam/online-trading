@@ -1,8 +1,9 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useDetails = () => {
   const [details] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/MarketData/Symbol/Price/BTC-USDT",
+    `${config.OT_URL}MarketData/Symbol/Price/BTC-USDT`,
     {}
   );
   return [details];

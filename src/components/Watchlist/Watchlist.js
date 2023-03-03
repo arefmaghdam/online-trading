@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useWatchLightweights from "../../hooks/useWatchLightweights";
 import useWatchItems from "../../hooks/useWatchItems";
+import config from "../../config";
 import styles from "./Watchlist.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
@@ -36,7 +37,7 @@ const Watchlist = () => {
       })
       .catch((err) => {
         if (err.response.status === 401)
-          window.location.href = "https://ot.api.kub.aghdam.nl/bff/login";
+          window.location.href = `${config.OT_URL}bff/login`;
         else alert("Undefined exception: " + JSON.stringify(err));
       });
   }, [lightweightId]);

@@ -1,3 +1,4 @@
+import config from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -20,9 +21,8 @@ const useGetAPI = (apiUrl, defaultValue) => {
       })
       .catch((err) => {
         if (err.response.status === 401)
-          window.location.href = "https://ot.api.kub.aghdam.nl/bff/login";
-        else 
-          alert('Undefined exception: ' + JSON.stringify(err))
+          window.location.href = `${config.OT_URL}bff/login`;
+        else alert("Undefined exception: " + JSON.stringify(err));
       });
   }, []);
 

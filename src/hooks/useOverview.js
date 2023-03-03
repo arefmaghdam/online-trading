@@ -1,10 +1,8 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useOverview = () => {
-  const [overview] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/WalletManagement/Wallet",
-    {}
-  );
+  const [overview] = useGetAPI(`${config.OT_URL}WalletManagement/Wallet`, {});
   return [overview];
 };
 export default useOverview;

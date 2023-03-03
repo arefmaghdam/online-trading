@@ -1,10 +1,8 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useOrders = () => {
-  const [orders] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/OrderManagement/Order",
-    []
-  );
+  const [orders] = useGetAPI(`${config.OT_URL}OrderManagement/Order`, []);
   return [orders];
 };
 

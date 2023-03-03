@@ -1,8 +1,9 @@
 import useGetAPI from "./useGetAPI";
+import config from "../config";
 
 const useWatchItems = (id) => {
   const [watchItems] = useGetAPI(
-    "https://ot.api.kub.aghdam.nl/WatchList/WatchList/" + id,
+    `${config.OT_URL}WatchList/WatchList/${id}`,
     {}
   );
   return [watchItems];
