@@ -1,7 +1,6 @@
 import { Typeahead } from "react-bootstrap-typeahead";
 import styles from "./Search.module.css";
 import "react-bootstrap-typeahead/css/Typeahead.min.css";
-import useGetAPI from "../../hooks/useGetAPI";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 
 const Search = () => {
