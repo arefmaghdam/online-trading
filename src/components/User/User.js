@@ -6,10 +6,22 @@ import Profile from "../Profile/Profile";
 
 const User = () => {
   const [systemClock, setSystemClock] = useState("");
+  const [status, setStatus] = useState(false);
+
   const clock = () => {
     let sc = new Date().toLocaleTimeString();
     setSystemClock(sc);
   };
+
+  const showProfileMenu = () => {
+    let displayStatus = false;
+    if (status == false) {
+      displayStatus = true;
+    }
+    if (status == true) displayStatus = false;
+    setStatus(displayStatus);
+  };
+
   setInterval(clock, 1000);
   return (
     <div className={`container-fluid ${styles.user}`}>
@@ -24,17 +36,20 @@ const User = () => {
         <div className={`col-md-4 ${styles.user}`}>
           <h6>{systemClock}</h6>
         </div>
-        <div className={`col-md-2 ${styles.user}`}>
+        <div onClick={showProfileMenu} className={`col-md-2 ${styles.user}`}>
           <h3>
             {" "}
             <FaUserCircle />{" "}
           </h3>
         </div>
-        <div className={styles.profile}>
-        <Profile />
+        <div
+          className={`${styles.profile} ${
+            status == false ? styles.displayFalse : styles.displayTrue
+          }`}
+        >
+          <Profile />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };

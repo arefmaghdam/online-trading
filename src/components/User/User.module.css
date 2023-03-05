@@ -31,3 +31,11 @@
     z-index: 2;
   }
 
+  .displayFalse {
+    display: none;
+  }
+
+  .displayTrue {
+    display: block;
+  }
+
