@@ -1,8 +1,15 @@
 import styles from "./User.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDesktopWindows } from "react-icons/md";
+import { useState } from "react";
 
 const User = () => {
+  const [systemClock,setSystemClock] = useState("");
+  const clock = () => {
+    let sc = new Date().toLocaleTimeString();
+    setSystemClock(sc);
+  }
+  setInterval(clock, 1000);
   return (
     <div className={`container-fluid ${styles.user}`}>
       <div className={`row ${styles.user}`}>
@@ -14,7 +21,7 @@ const User = () => {
           </h4>
         </div>
         <div className={`col-md-4 ${styles.user}`}>
-          <h6>12:47</h6>
+          <h6>{systemClock}</h6>
         </div>
         <div className={`col-md-2 ${styles.user}`}>
           <h3>
