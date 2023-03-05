@@ -7,9 +7,10 @@ import Details from "../Details/Details";
 import Overview from "../Overview/Overview";
 import Report from "../Report/Report";
 import Orderbook from "../Orderbook/Orderbook";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronRight, FaUserCircle } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Trades from "../Trades/Trades";
+import Profile from "../Profile/Profile";
 
 const Layout = () => {
   return (
@@ -51,6 +52,9 @@ const Layout = () => {
           <div className={`${styles.box} ${styles.color1}`}>
             <Orderbook />
           </div>
+        </div>
+        <div className={styles.profile}>
+          <Profile />
         </div>
       </div>
       <div className="row">

@@ -1,0 +1,28 @@
+.profile {
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+    box-shadow: rgb(187, 187, 187) 0px 2px 8px 0px;
+  }
+  
+  .profile > div {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(16, 125, 129);
+  }
+  .profile > h6 {
+    font-size: 17px;
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: #8a8a8a solid 1px;
+  }
+  
+  .profile > a {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(37, 186, 255);
+  }
+  
+  .profile > a:hover {
+    text-decoration: none;
+  }
