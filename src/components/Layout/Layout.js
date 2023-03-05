@@ -9,6 +9,7 @@ import Report from "../Report/Report";
 import Orderbook from "../Orderbook/Orderbook";
 import { FaChevronRight } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import Trades from "../Trades/Trades";
 
 const Layout = () => {
   return (
@@ -70,7 +71,9 @@ const Layout = () => {
               <TabPanel className={styles.orders}>
                 <Report />
               </TabPanel>
-              <TabPanel className={styles.trades}>Trades Component</TabPanel>
+              <TabPanel className={styles.trades}>
+                <Trades />
+              </TabPanel>
             </Tabs>
           </div>
         </div>
