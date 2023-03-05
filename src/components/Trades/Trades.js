@@ -1,6 +1,14 @@
+import { useEffect, useState } from "react";
+import useTrades from "../../hooks/useTrades";
 import styles from "./Trades.module.css";
 
 const Trades = () => {
+    const [trades] = useTrades();
+    const [tradesData, setTradesData] = useState([]);
+    useEffect(() => {
+        if (trades === undefined) return
+        setTradesData(trades)
+    }, [trades])
   return (
     <>
     <div className={styles.container}>
@@ -21,9 +29,18 @@ const Trades = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    {tradesData.map((item) => {
+                        return (
+                            <tr key={item.id}>
+                                <td>{item.orders.symbolId}</td>
+                                <td>{item.orders.quantity}</td>
+                                <td>{item.orders.price}</td>
+                                <td>{item.createdAt}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.price}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>
