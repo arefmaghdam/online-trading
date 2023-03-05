@@ -24,6 +24,10 @@
     margin-left: calc(2vw);
 }
 
+.user > h3:hover {
+    cursor: pointer;
+}
+
 .profile {
     position: absolute;
     margin-left: calc(33vw - 220px);
