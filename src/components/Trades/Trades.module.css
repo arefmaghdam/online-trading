@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  border-bottom:10px;
+  border-bottom: 1px solid white;
+}
+
+.orders {
+  flex-grow: 47;
+  text-align: center;
+  color: white;
+  border-right: 1px solid white;
+}
+
+.trades {
+  flex-grow: 53;
+  text-align: center;
+  color: white;
+}
+
+.tradeContent {
+    height: calc(100% - 35px);
+}
+
+.table {
+    flex-grow: 15;
+}
+
+.tableContent {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+    border: hidden;
+}
+
+.tableContent > thead {
+    border: hidden;
+  }
