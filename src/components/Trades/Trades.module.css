@@ -35,3 +35,13 @@
 .tableContent > thead {
     border: hidden;
   }
+
+  .tableContent > tbody > tr {
+    border: hidden;
+    height: 100%;
+  }
+  
+  .tableContent > tbody > tr > td {
+    padding: 0 0 0 12px;
+    padding-bottom: 10px;
+  }
