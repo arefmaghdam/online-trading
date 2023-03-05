@@ -125,8 +125,3 @@
 .headerContent > div > div > div {
   height: 35px;
 }
-
-.profile {
-  position: absolute;
-  margin-left: calc(100vw - 210px);
-}

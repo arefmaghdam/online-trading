@@ -6,14 +6,14 @@
   }
   
   .profile > div {
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
     color: rgb(16, 125, 129);
   }
   .profile > h6 {
-    font-size: 17px;
-    text-align: center;
+    font-size: 15px;
     padding-bottom: 25px;
+    color: rgb(0, 0, 0);
     border-bottom: #8a8a8a solid 1px;
   }
   

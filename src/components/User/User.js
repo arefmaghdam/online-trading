@@ -2,13 +2,14 @@ import styles from "./User.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDesktopWindows } from "react-icons/md";
 import { useState } from "react";
+import Profile from "../Profile/Profile";
 
 const User = () => {
-  const [systemClock,setSystemClock] = useState("");
+  const [systemClock, setSystemClock] = useState("");
   const clock = () => {
     let sc = new Date().toLocaleTimeString();
     setSystemClock(sc);
-  }
+  };
   setInterval(clock, 1000);
   return (
     <div className={`container-fluid ${styles.user}`}>
@@ -29,7 +30,11 @@ const User = () => {
             <FaUserCircle />{" "}
           </h3>
         </div>
+        <div className={styles.profile}>
+        <Profile />
       </div>
+      </div>
+      
     </div>
   );
 };
