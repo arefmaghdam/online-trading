@@ -8,6 +8,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}/>
         <Route path="/signin-result" element={<SignInResult />} />
+        <Route path="/report" element={<SignInResult />} />
+        <Route path="/topup" element={<SignInResult />} />
+        <Route path="/management" element={<SignInResult />} />
       </Routes>
     </BrowserRouter>
   );

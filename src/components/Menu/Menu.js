@@ -3,10 +3,10 @@ import styles from "./Menu.module.css";
 const Menu = () => {
   return (
     <ul className={styles.menu}>
-      <li>Home</li>
-      <li>Report</li>
-      <li>Topup</li>
-      <li>Management</li>
+      <a href="/">Home</a>
+      <a href="/report">Report</a>
+      <a href="/topup">Topup</a>
+      <a href="/management">Management</a>
     </ul>
   );
 };

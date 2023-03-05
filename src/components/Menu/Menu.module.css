@@ -5,13 +5,15 @@
     padding-left: 0;
 }
 
-.menu li {
+.menu a {
     flex-direction: column;
     padding: 7px 7px 6px 7px;
     font-size: 0.9rem;
+    color: #fff;
 }
 
-.menu > li:hover {
+.menu > a:hover {
     cursor: pointer;
     background-color: rgb(45, 45, 45);
+    text-decoration: none;
 }
