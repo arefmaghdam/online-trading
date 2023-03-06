@@ -1,12 +1,20 @@
 import styles from "./User.module.css";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDesktopWindows } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Profile from "../Profile/Profile";
+import useProfile from "../../hooks/useProfile";
 
 const User = () => {
   const [systemClock, setSystemClock] = useState("");
   const [status, setStatus] = useState(false);
+  const [customer] = useProfile();
+
+  useEffect(() => {
+    if(customer[0] == undefined) return
+    localStorage.setItem("customerName" , customer[0].name)
+    localStorage.setItem("customerFamily" , customer[0].family)
+  },[customer])
 
   const clock = () => {
     let sc = new Date().toLocaleTimeString();
@@ -15,10 +23,10 @@ const User = () => {
 
   const showProfileMenu = () => {
     let displayStatus = false;
-    if (status == false) {
+    if (status === false) {
       displayStatus = true;
     }
-    if (status == true) displayStatus = false;
+    if (status === true) displayStatus = false;
     setStatus(displayStatus);
   };
 
@@ -44,7 +52,7 @@ const User = () => {
         </div>
         <div
           className={`${styles.profile} ${
-            status == false ? styles.displayFalse : styles.displayTrue
+            status === false ? styles.displayFalse : styles.displayTrue
           }`}
         >
           <Profile />
