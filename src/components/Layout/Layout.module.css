@@ -24,12 +24,20 @@
   position: absolute;
 }
 
+.orders:focus-visible {
+  outline: none;
+}
+
 .tabs {
   display: flex;
   list-style: none;
   color: #fff;
   padding-left: 0;
   margin-bottom: 0;
+}
+
+.tabs:focus-visible {
+  outline: none;
 }
 
 .tab {
@@ -49,16 +57,18 @@
   height: 100%;
   width: 12px;
   background-color: #494949;
-  float: right;
-  margin-right: 0;
   border-radius: 0 3px 3px 0;
   text-align: center;
   color: #8a8a8a;
   padding-top: calc((100vh -35px - 30vh) / 3.5);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .sideMenu:hover {
   background-color: #434343;
+  cursor: pointer;
 }
 
 .box {
@@ -106,9 +116,41 @@
   padding: 12px 0 0 12px;
 }
 
+.detailsContent {
+  position: relative;
+  padding-right: 20px;
+}
+
+.placeOrderForm {
+  position: absolute;
+  top: 0;
+  right: -300px;
+  background: red;
+  height: 100%;
+  width: 300px;
+  border-radius: 0 3px 3px 0;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.showState {
+  right: -300px;
+}
+
+.hideState {
+  right: 0;
+}
+
 .orderbook {
   height: calc(100vh - 35px - 30vh);
   padding: 12px 12px 0 12px;
+  position: relative;
 }
 
 .overview {
