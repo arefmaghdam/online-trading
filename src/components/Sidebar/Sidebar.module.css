@@ -1,0 +1,36 @@
+.buttons {
+    margin-left: calc((3vw - 12px)/2);
+    margin-top: 2px;
+    margin-bottom: 20px;
+}
+
+.buyButton {
+    width: 7.5vw;
+    border-radius: 3px 0 0 3px;
+}
+
+.sellButton {
+    width: 7.5vw;
+    border-radius: 0 3px 3px 0;
+}
+
+.submitButton {
+    width: 10vw;
+    text-align: center;
+}
+
+.centerButton {
+    text-align: center;
+}
+
+.inputWidth {
+    width: 95%;
+}
+
+.marginTop {
+    margin-top: 15px;
+}
+
+.inputMarginTop {
+    margin-top: 5px;
+}

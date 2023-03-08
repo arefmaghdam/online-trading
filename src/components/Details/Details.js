@@ -14,7 +14,7 @@ const Details = () => {
           </span>
         </div>
         <div className={styles.buySellButton}>
-          <button className="btn btn-warning text-white font-weight-bold">
+          <button className="btn btn-warning text-white font-weight-normal">
             Buy/Sell
           </button>
         </div>

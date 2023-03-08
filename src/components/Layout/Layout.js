@@ -10,7 +10,8 @@ import Orderbook from "../Orderbook/Orderbook";
 import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Trades from "../Trades/Trades";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = () => {
   const [showMenu, setStatus] = useState(false);
@@ -50,11 +51,11 @@ const Layout = () => {
           >
             <Details />
             <div
-              class={`${styles.placeOrderForm} ${
+              class={`${styles.placeOrderForm} ${styles.box3} ${
                 showMenu == true ? styles.show : styles.hide
               }`}
             >
-              Place Order Form
+              <Sidebar />
             </div>
             <div
               onClick={showSideBarMenu}
