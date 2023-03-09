@@ -1,8 +1,26 @@
+import { useRef } from "react";
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
+  const priceRef = useRef();
+  const quantityRef = useRef();
+  const totalQuantityRef = useRef();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const enteredPrice = priceRef.current.value;
+    const enteredQuantity = quantityRef.current.value;
+    const enteredTotalQuantity = totalQuantityRef.current.value;
+    const orderData = {
+      price : enteredPrice,
+      quantity : enteredQuantity,
+      totalQuantity : enteredTotalQuantity,
+    }
+    console.log("submited");
+    console.log(orderData);
+  }
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className={styles.buttons}>
         <button
           className={`btn btn-success text-white font-weight-normal ${styles.buyButton}`}
@@ -16,26 +34,53 @@ const Sidebar = () => {
         </button>
       </div>
       <div>
-        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>Price</label>
+        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>
+          Price
+        </label>
       </div>
       <div>
-        <input className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}></input>
+        <input
+          type="float"
+          name="price"
+          id="price"
+          required
+          ref={priceRef}
+          className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}
+        ></input>
       </div>
       <div>
-        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>Quantity</label>
+        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>
+          Quantity
+        </label>
       </div>
       <div>
-        <input className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}></input>
+        <input
+          type="float"
+          name="quantity"
+          id="quantity"
+          required
+          ref={quantityRef}
+          className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}
+        ></input>
       </div>
       <div>
-        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>Total Quantity</label>
+        <label className={`text-white ${styles.lables} ${styles.marginTop}`}>
+          Total Quantity
+        </label>
       </div>
       <div>
-        <input className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}></input>
+        <input
+          type="float"
+          name="totalQuantity"
+          id="totalQuantity"
+          required
+          ref={totalQuantityRef}
+          className={`form-control ${styles.inputWidth} ${styles.inputMarginTop}`}
+        ></input>
       </div>
       <div className={styles.centerButton}>
         <button
-          className={`btn btn-primary text-white font-weight-normal ${styles.submitButton} ${styles.marginTop}`}
+          type = "submit" className={`btn btn-primary text-white font-weight-normal ${styles.submitButton} ${styles.marginTop}`}
         >
           Submit
         </button>

@@ -51,7 +51,7 @@ const Layout = () => {
           >
             <Details />
             <div
-              class={`${styles.placeOrderForm} ${styles.box3} ${
+              className={`${styles.placeOrderForm} ${styles.box3} ${
                 showMenu == true ? styles.show : styles.hide
               }`}
             >
