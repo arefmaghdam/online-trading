@@ -1,17 +1,19 @@
 .buttons {
     margin-left: calc((3vw - 12px)/2);
     margin-top: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .buyButton {
     width: 7.5vw;
     border-radius: 3px 0 0 3px;
+    margin-right: 0.5px;
 }
 
 .sellButton {
     width: 7.5vw;
     border-radius: 0 3px 3px 0;
+    margin-left: 0.5px;
 }
 
 .submitButton {
@@ -23,8 +25,24 @@
     text-align: center;
 }
 
+.submitMarginTop {
+    margin-top: 33px;
+}
+
 .inputWidth {
     width: 95%;
+    height: 5vh;
+    background-color: #353535;
+    border: none;
+    border-bottom: 2px solid rgb(79, 79, 79);
+    color: #fff;
+}
+
+.inputWidth:focus {
+    background-color: #353535;
+    border: none;
+    color: #fff;
+    
 }
 
 .marginTop {
