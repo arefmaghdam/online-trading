@@ -12,15 +12,17 @@ const Sidebar = () => {
     const enteredQuantity = quantityRef.current.value;
     const enteredTotalQuantity = totalQuantityRef.current.value;
     const orderData = {
-      price : enteredPrice,
-      quantity : enteredQuantity,
-      totalQuantity : enteredTotalQuantity,
-    }
+      symbolId: "BTC-USDT",
+      price: enteredPrice,
+      quantity: enteredQuantity,
+      totalQuantity: enteredTotalQuantity,
+    };
     console.log("submited");
     console.log(orderData);
-  }
+  };
+
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} autocomplete="off">
       <div className={styles.buttons}>
         <button
           className={`btn btn-success text-white font-weight-normal ${styles.buyButton}`}
@@ -40,7 +42,8 @@ const Sidebar = () => {
       </div>
       <div>
         <input
-          type="float"
+          type="number"
+          step="0.0000000001"
           name="price"
           id="price"
           required
@@ -55,7 +58,8 @@ const Sidebar = () => {
       </div>
       <div>
         <input
-          type="float"
+          type="number"
+          step="0.0000000001"
           name="quantity"
           id="quantity"
           required
@@ -70,7 +74,8 @@ const Sidebar = () => {
       </div>
       <div>
         <input
-          type="float"
+          type="number"
+          step="0.0000000001"
           name="totalQuantity"
           id="totalQuantity"
           required
@@ -80,7 +85,8 @@ const Sidebar = () => {
       </div>
       <div className={styles.centerButton}>
         <button
-          type = "submit" className={`btn btn-primary text-white font-weight-normal ${styles.submitButton} ${styles.marginTop}`}
+          type="submit"
+          className={`btn btn-primary text-white font-weight-normal ${styles.submitButton} ${styles.submitMarginTop}`}
         >
           Submit
         </button>
