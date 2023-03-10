@@ -7,7 +7,7 @@ import Details from "../Details/Details";
 import Overview from "../Overview/Overview";
 import Report from "../Report/Report";
 import Orderbook from "../Orderbook/Orderbook";
-import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Trades from "../Trades/Trades";
 import { useState } from "react";
@@ -52,7 +52,7 @@ const Layout = () => {
             <Details />
             <div
               className={`${styles.placeOrderForm} ${styles.box3} ${
-                showMenu == true ? styles.show : styles.hide
+                showMenu === true ? styles.show : styles.hide
               }`}
             >
               <Sidebar />
@@ -60,16 +60,16 @@ const Layout = () => {
             <div
               onClick={showSideBarMenu}
               className={`${styles.sideMenu} ${
-                showMenu == true ? styles.showState : styles.hideState
+                showMenu === true ? styles.showState : styles.hideState
               }`}
             >
-              {showMenu == true ? <FaChevronLeft /> : <FaChevronRight />}
+              {showMenu === true ? <FaChevronLeft /> : <FaChevronRight />}
             </div>
           </div>
         </div>
         <div
           className={`col-sm-5 ${styles.orderbook} ${
-            showMenu == true ? styles.showState : styles.hideState
+            showMenu === true ? styles.showState : styles.hideState
           }`}
         >
           <div className={`${styles.box} ${styles.color1}`}>
