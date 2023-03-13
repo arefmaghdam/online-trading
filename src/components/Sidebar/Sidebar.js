@@ -1,19 +1,35 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Tab, TabList, Tabs } from "react-tabs";
+import postAPI from "../PostAPI/postAPI";
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
-  const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [totalQuantity, setToatalQuantity] = useState(0);
-  
+  const [price, setPrice] = useState();
+  const [quantity, setQuantity] = useState();
+  const [totalQuantity, setToatalQuantity] = useState();
+
   const submitHandler = (e) => {
     e.preventDefault();
     const orderData = {
-      price : price,
-      quantity : quantity,
-      totalQuantity : totalQuantity,
-    }
+      symbolId: "BTC-USDT",
+      price: price,
+      quantity: quantity,
+      orderSide: 1,
+    };
+
+    let promise = postAPI(
+      "https://ot.api.kub.aghdam.nl/OrderManagement/Order",
+      orderData
+    ).then(
+      (resp) => {
+        console.log("response: ", resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+
+    console.log(orderData);
   };
 
   return (
