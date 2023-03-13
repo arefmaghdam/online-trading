@@ -42,8 +42,45 @@
     background-color: #353535;
     border: none;
     color: #fff;
-    
 }
+
+.tabs {
+    display: flex;
+    list-style: none;
+    color: #fff;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .tabs:focus-visible {
+    outline: none;
+  }
+  
+  .tab {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-direction: column;
+    padding: 7px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .tab:active {
+    background-color: red;
+  }
+  
+  .tab:hover {
+    background-color: #434343;
+  }
+
+.tabContainer {
+    height: 35px;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    background-color: #474747;
+    border-radius: 3px;
+  }
 
 .marginTop {
     margin-top: 15px;
