@@ -1,91 +1,118 @@
 .buttons {
-    margin-left: calc((3vw - 12px)/2);
-    margin-top: 2px;
-    margin-bottom: 15px;
+  margin-left: calc((3vw - 12px) / 2);
+  margin-top: 2px;
+  margin-bottom: 15px;
 }
 
 .buyButton {
-    width: 7.5vw;
-    border-radius: 3px 0 0 3px;
-    margin-right: 0.5px;
+  width: 7.5vw;
+  border-radius: 3px 0 0 3px;
+  margin-right: 0.5px;
 }
 
 .sellButton {
-    width: 7.5vw;
-    border-radius: 0 3px 3px 0;
-    margin-left: 0.5px;
+  width: 7.5vw;
+  border-radius: 0 3px 3px 0;
+  margin-left: 0.5px;
 }
 
 .submitButton {
-    width: 10vw;
-    text-align: center;
+  width: 10vw;
+  text-align: center;
 }
 
 .centerButton {
-    text-align: center;
+  text-align: center;
 }
 
 .submitMarginTop {
-    margin-top: 33px;
+  margin-top: 33px;
 }
 
 .inputWidth {
-    width: 95%;
-    height: 5vh;
-    background-color: #353535;
-    border: none;
-    border-bottom: 2px solid rgb(79, 79, 79);
-    color: #fff;
+  width: 95%;
+  height: 5vh;
+  background-color: #353535;
+  border: none;
+  border-bottom: 2px solid rgb(79, 79, 79);
+  color: #fff;
 }
 
 .inputWidth:focus {
-    background-color: #353535;
-    border: none;
-    color: #fff;
+  background-color: #353535;
+  border: none;
+  color: #fff;
 }
 
 .tabs {
-    display: flex;
-    list-style: none;
-    color: #fff;
-    padding-left: 0;
-    margin-bottom: 0;
-  }
+  display: flex;
+  list-style: none;
+  color: #fff;
+  padding-left: 0;
+  margin-bottom: 0;
+  /* text-align: center; */
+}
 
-  .tabs:focus-visible {
-    outline: none;
-  }
-  
-  .tab {
-    padding-left: 15px;
-    padding-right: 15px;
-    flex-direction: column;
-    padding: 7px 20px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
+.tabs:focus-visible {
+  outline: none;
+}
 
-  .tab:active {
-    background-color: red;
-  }
-  
-  .tab:hover {
-    background-color: #434343;
-  }
+.tabBuy {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  width: 50%;
+  background-color: green;
+  padding: 7px 20px;
+  border-radius: 3px 0 0 3px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.tabBuy:focus {
+  background-color: rgb(0, 77, 0);
+}
+
+.tabSell:focus-visible,
+.tabBuy:focus-visible {
+  outline: 0;
+}
+
+.tabSell {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  width: 50%;
+  background-color: red;
+  padding: 7px 20px;
+  border-radius: 0 3px 3px 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.tabSell:focus {
+  background-color: rgb(111, 0, 0);
+}
+
+.tabBuy:hover {
+  background-color: rgb(0, 107, 0);
+}
+
+.tabSell:hover {
+  background-color: rgb(194, 0, 0);
+}
 
 .tabContainer {
-    height: 35px;
-    width: 100%;
-    margin: 0;
-    position: relative;
-    background-color: #474747;
-    border-radius: 3px;
-  }
+  height: 35px;
+  width: 95%;
+  background-color: #474747;
+  border-radius: 3px;
+}
 
 .marginTop {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .inputMarginTop {
-    margin-top: 5px;
+  margin-top: 5px;
 }

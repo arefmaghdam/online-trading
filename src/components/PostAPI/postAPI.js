@@ -25,9 +25,6 @@ const postAPI = (apiUrl, data) => {
 
         myReject(err);
       });
-
-    // when successful
-    // when error
   });
 
   return promise;

@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tab, TabList, Tabs } from "react-tabs";
 import postAPI from "../PostAPI/postAPI";
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
-  const [price, setPrice] = useState();
-  const [quantity, setQuantity] = useState();
-  const [totalQuantity, setToatalQuantity] = useState();
+  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
+  const [totalQuantity, setToatalQuantity] = useState(0);
+
+  useEffect(() => {
+    if (isNaN(price) || isNaN(quantity)) return;
+
+    setToatalQuantity(price * quantity);
+  }, [price, quantity]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -36,8 +42,8 @@ const Sidebar = () => {
     <form onSubmit={submitHandler} autocomplete="off">
       <Tabs className={styles.tabContainer}>
         <TabList className={styles.tabs}>
-          <Tab className={styles.tab}>Bul</Tab>
-          <Tab className={styles.tab}>Sell</Tab>
+          <Tab className={styles.tabBuy}>Bul</Tab>
+          <Tab className={styles.tabSell}>Sell</Tab>
         </TabList>
       </Tabs>
       <div>
@@ -76,7 +82,7 @@ const Sidebar = () => {
       </div>
       <div>
         <label className={`text-white ${styles.lables} ${styles.marginTop}`}>
-          Total Quantity
+          Total Price
         </label>
       </div>
       <div>
