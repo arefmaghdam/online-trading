@@ -7,6 +7,7 @@ const Sidebar = () => {
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [totalQuantity, setToatalQuantity] = useState(0);
+  const [sidebar, setSidebar] = useState(1);
 
   useEffect(() => {
     if (isNaN(price) || isNaN(quantity)) return;
@@ -20,7 +21,7 @@ const Sidebar = () => {
       symbolId: "BTC-USDT",
       price: price,
       quantity: quantity,
-      orderSide: 1,
+      orderSide: sidebar,
     };
 
     let promise = postAPI(
@@ -42,8 +43,8 @@ const Sidebar = () => {
     <form onSubmit={submitHandler} autocomplete="off">
       <Tabs className={styles.tabContainer}>
         <TabList className={styles.tabs}>
-          <Tab className={styles.tabBuy}>Bul</Tab>
-          <Tab className={styles.tabSell}>Sell</Tab>
+          <Tab className={styles.tabBuy} onClick={() => setSidebar(1)}>Bul</Tab>
+          <Tab className={styles.tabSell} onClick={() => setSidebar(2)}>Sell</Tab>
         </TabList>
       </Tabs>
       <div>
