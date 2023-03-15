@@ -8,12 +8,15 @@ import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
 import EditWatchlist from "../EditWatchlist/EditWatchlist";
+import DeleteWatchlist from "../DeleteWatchlist/DeleteWatchlist";
+import AddWatchlist from "../AddWatchlist/AddWatchlist";
 
 const Watchlist = () => {
   const [lightweightId, setLightweightId] = useState(1);
   const [displayEditStatus, setDisplayEditStatus] = useState(false);
   const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
   const [watchData, setWatchData] = useState([]); // Table
+  let [selectId, setSelectId] = useState(0);
 
   const [watchSymbols] = useWatchLightweights();
   let [watchItems] = useWatchItems(lightweightId);
@@ -58,7 +61,7 @@ const Watchlist = () => {
     setLightweightId(selectId);
   };
 
-  const showEditMenu = () => {
+  const showAddBox = () => {
     let editStatus = false;
     if (displayEditStatus === false) {
       editStatus = true;
@@ -67,7 +70,31 @@ const Watchlist = () => {
       editStatus = false;
     }
     setDisplayEditStatus(editStatus);
-    console.log(displayEditStatus);
+    setSelectId(1);
+  };
+
+  const showEditBox = () => {
+    let editStatus = false;
+    if (displayEditStatus === false) {
+      editStatus = true;
+    }
+    if (displayEditStatus === true) {
+      editStatus = false;
+    }
+    setDisplayEditStatus(editStatus);
+    setSelectId(2);
+  };
+
+  const showDeleteBox = () => {
+    let editStatus = false;
+    if (displayEditStatus === false) {
+      editStatus = true;
+    }
+    if (displayEditStatus === true) {
+      editStatus = false;
+    }
+    setDisplayEditStatus(editStatus);
+    setSelectId(3);
   };
 
   return (
@@ -94,16 +121,22 @@ const Watchlist = () => {
                   </select>
                 </div>
                 <div>
-                  <button className={`btn ${styles.editWatchlist}`}>
+                  <button
+                    onClick={showEditBox}
+                    className={`btn ${styles.editWatchlist}`}
+                  >
                     <MdEdit />
                   </button>
                   <button
-                    onClick={showEditMenu}
+                    onClick={showAddBox}
                     className={`btn ${styles.addWatchlist}`}
                   >
                     <MdAdd />
                   </button>
-                  <button className={`btn ${styles.removeWatchlist}`}>
+                  <button
+                    onClick={showDeleteBox}
+                    className={`btn ${styles.removeWatchlist}`}
+                  >
                     <MdRemove />
                   </button>
                 </div>
@@ -151,10 +184,22 @@ const Watchlist = () => {
           </div>
         </div>
       </div>
-      <div className={`${styles.editMenu} ${
-        displayEditStatus === false ? styles.displayEditFalse : styles.displayEditTrue
-      }`}>
-        <EditWatchlist/>
+      <div
+        className={`${styles.editMenu} ${
+          displayEditStatus === false
+            ? styles.displayEditFalse
+            : styles.displayEditTrue
+        }`}
+      >
+        <div className={selectId === 1 ? styles.showBox : styles.hideBox}>
+          <AddWatchlist />
+        </div>
+        <div className={selectId === 2 ? styles.showBox : styles.hideBox}>
+          <EditWatchlist />
+        </div>
+        <div className={selectId === 3 ? styles.showBox : styles.hideBox}>
+          <DeleteWatchlist />
+        </div>
       </div>
     </>
   );

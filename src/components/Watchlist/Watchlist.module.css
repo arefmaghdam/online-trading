@@ -27,6 +27,14 @@
   height: 30px;
 }
 
+.showBox {
+  display: block;
+}
+
+.hideBox {
+  display: none;
+}
+
 .toolbarContainer {
   height: 30px;
 }
