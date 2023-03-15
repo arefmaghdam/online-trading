@@ -4,6 +4,25 @@
   margin-bottom: 10px;
 }
 
+.editMenu {
+  height: 48vh;
+  width: 28vw;
+  border-radius: 5px;
+  background-color: rgb(67, 67, 67);
+  box-shadow: rgb(187, 187, 187) 0px 0px 8px 0px;
+  position: absolute;
+  top: 14vh;
+  left: 3vw;
+}
+
+.displayEditFalse {
+  display: none;
+}
+
+.displayEditTrue {
+  display: block;
+}
+
 .titleContainer {
   height: 30px;
 }
