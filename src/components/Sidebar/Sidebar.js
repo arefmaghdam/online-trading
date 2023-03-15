@@ -41,12 +41,18 @@ const Sidebar = () => {
 
   return (
     <form onSubmit={submitHandler} autocomplete="off">
-      <Tabs className={styles.tabContainer}>
-        <TabList className={styles.tabs}>
-          <Tab className={styles.tabBuy} onClick={() => setSidebar(1)}>Bul</Tab>
-          <Tab className={styles.tabSell} onClick={() => setSidebar(2)}>Sell</Tab>
-        </TabList>
-      </Tabs>
+      <ul className={`nav  justify-content-center ${styles.tabContainer}`}>
+        <li className={`nav-item ${styles.tabs}`}>
+          <a className={`nav-link ${styles.tabBuy}`} onClick={() => setSidebar(1)} href="#">
+            Active
+          </a>
+        </li>
+        <li className={`nav-item ${styles.tabs}`}>
+          <a className={`nav-link ${styles.tabSell}`} onClick={() => setSidebar(2)} href="#">
+            Link
+          </a>
+        </li>
+      </ul>
       <div>
         <label className={`text-white ${styles.lables} ${styles.marginTop}`}>
           Price

@@ -50,7 +50,7 @@
   color: #fff;
   padding-left: 0;
   margin-bottom: 0;
-  /* text-align: center; */
+  width: 45%;
 }
 
 .tabs:focus-visible {
@@ -61,12 +61,13 @@
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
-  width: 50%;
+  width: 100%;
   background-color: green;
   padding: 7px 20px;
   border-radius: 3px 0 0 3px;
   font-size: 0.9rem;
   cursor: pointer;
+  color: #fff;
 }
 
 .tabBuy:focus {
@@ -82,12 +83,13 @@
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
-  width: 50%;
+  width: 100%;
   background-color: red;
   padding: 7px 20px;
   border-radius: 0 3px 3px 0;
   font-size: 0.9rem;
   cursor: pointer;
+  color: #fff;
 }
 
 .tabSell:focus {
@@ -96,16 +98,17 @@
 
 .tabBuy:hover {
   background-color: rgb(0, 107, 0);
+  color: #fff;
 }
 
 .tabSell:hover {
   background-color: rgb(194, 0, 0);
+  color: #fff;
 }
 
 .tabContainer {
   height: 35px;
   width: 95%;
-  background-color: #474747;
   border-radius: 3px;
 }
 
