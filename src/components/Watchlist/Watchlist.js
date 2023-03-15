@@ -7,6 +7,7 @@ import styles from "./Watchlist.module.css";
 import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
+import EditWatchlist from "../EditWatchlist/EditWatchlist";
 
 const Watchlist = () => {
   const [lightweightId, setLightweightId] = useState(1);
@@ -71,7 +72,6 @@ const Watchlist = () => {
 
   return (
     <>
-      
       <div className={styles.watchlistSize}>
         <div className="container-fluid">
           <div className={`row ${styles.titleContainer}`}>
@@ -153,7 +153,9 @@ const Watchlist = () => {
       </div>
       <div className={`${styles.editMenu} ${
         displayEditStatus === false ? styles.displayEditFalse : styles.displayEditTrue
-      }`}></div>
+      }`}>
+        <EditWatchlist/>
+      </div>
     </>
   );
 };
