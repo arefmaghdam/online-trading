@@ -44,12 +44,12 @@ const Sidebar = () => {
       <ul className={`nav  justify-content-center ${styles.tabContainer}`}>
         <li className={`nav-item ${styles.tabs}`}>
           <a className={`nav-link ${styles.tabBuy}`} onClick={() => setSidebar(1)} href="#">
-            Active
+            Buy
           </a>
         </li>
         <li className={`nav-item ${styles.tabs}`}>
           <a className={`nav-link ${styles.tabSell}`} onClick={() => setSidebar(2)} href="#">
-            Link
+            Sell
           </a>
         </li>
       </ul>

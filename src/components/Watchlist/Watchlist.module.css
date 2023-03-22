@@ -5,14 +5,15 @@
 }
 
 .editMenu {
-  height: 48vh;
-  width: 28vw;
+  height: 60vh;
+  width: 30vw;
   border-radius: 5px;
   background-color: rgb(67, 67, 67);
-  box-shadow: rgb(187, 187, 187) 0px 0px 8px 0px;
+  box-shadow: rgb(26, 26, 26) 0px 0px 8px 0px;
   position: absolute;
-  top: 14vh;
-  left: 3vw;
+  top: 12vh;
+  left: 35vw;
+  z-index: 1;
 }
 
 .displayEditFalse {
