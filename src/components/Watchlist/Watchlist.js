@@ -8,8 +8,9 @@ import { MdEdit } from "react-icons/md";
 import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
 import EditWatchlist from "../EditWatchlist/EditWatchlist";
-import DeleteWatchlist from "../DeleteWatchlist/DeleteWatchlist";
 import AddWatchlist from "../AddWatchlist/AddWatchlist";
+import postAPI from "../PostAPI/postAPI";
+import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Watchlist = () => {
   const [lightweightId, setLightweightId] = useState(1);
@@ -85,16 +86,17 @@ const Watchlist = () => {
     setSelectId(2);
   };
 
-  const showDeleteBox = () => {
-    let editStatus = false;
-    if (displayEditStatus === false) {
-      editStatus = true;
-    }
-    if (displayEditStatus === true) {
-      editStatus = false;
-    }
-    setDisplayEditStatus(editStatus);
-    setSelectId(3);
+  const deleteWatchlist = () => {
+    let promise = DeleteAPI(
+      `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`
+    ).then(
+      (resp) => {
+        console.log("response: ", resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
   };
 
   return (
@@ -134,7 +136,7 @@ const Watchlist = () => {
                     <MdAdd />
                   </button>
                   <button
-                    onClick={showDeleteBox}
+                    onClick={deleteWatchlist}
                     className={`btn ${styles.removeWatchlist}`}
                   >
                     <MdRemove />
@@ -196,9 +198,6 @@ const Watchlist = () => {
         </div>
         <div className={selectId === 2 ? styles.showBox : styles.hideBox}>
           <EditWatchlist />
-        </div>
-        <div className={selectId === 3 ? styles.showBox : styles.hideBox}>
-          <DeleteWatchlist />
         </div>
       </div>
     </>
