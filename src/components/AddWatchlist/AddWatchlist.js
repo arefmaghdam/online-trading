@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { Typeahead } from "react-bootstrap-typeahead";
+import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import postAPI from "../PostAPI/postAPI";
+import styles from "./AddWatchlist.module.css";
 
 const AddWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
-
+  const [symbols] = useLightweightSymbols();
   const submitHandler = (e) => {
     e.preventDefault();
     const watchlistData = {
@@ -25,28 +28,34 @@ const AddWatchlist = () => {
   };
 
   return (
-    <form onSubmit={submitHandler} autocomplete="off">
-      <label className="text-white">Watchlist Name</label>
-      <input
-        type="text"
-        name="watchlist"
-        id="watchlist"
-        value={watchlistName}
-        onChange={(e) => setWatchlistName(e.target.value)}
-        required
-        className="form-control"
-      ></input>
-      <select className="select" multiple>
-        <option value="1">BTC-USDT</option>
-        <option value="2">ETC-USDT</option>
-      </select>
-      <button
-        type="submit"
-        className="btn btn-primary text-white font-weight-normal"
-      >
-        Add Watchlist
-      </button>
-    </form>
+    <div className={styles.container}>
+      <form onSubmit={submitHandler} autocomplete="off">
+        <label className="text-white">Watchlist Name</label>
+        <input
+          type="text"
+          name="watchlist"
+          id="watchlist"
+          value={watchlistName}
+          onChange={(e) => setWatchlistName(e.target.value)}
+          required
+          className="form-control"
+        ></input>
+        <label className="text-white">Selection Symbols</label>
+        <Typeahead
+          id="searchInput"
+          className={styles.search}
+          labelKey={(option) => option.symbolId}
+          options={symbols}
+          size="sm"
+        />
+        <button
+          type="submit"
+          className="btn btn-primary text-white font-weight-normal"
+        >
+          Add Watchlist
+        </button>
+      </form>
+    </div>
   );
 };
 
