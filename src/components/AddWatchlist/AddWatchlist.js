@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import postAPI from "../PostAPI/postAPI";
@@ -6,12 +6,14 @@ import styles from "./AddWatchlist.module.css";
 
 const AddWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
+  const [watchlistSymbols, setWatchlistSymbols] = useState([]);
+  const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
   const submitHandler = (e) => {
     e.preventDefault();
     const watchlistData = {
       name: watchlistName,
-      symbolIds: ["BTC-USDT", "ETC-USDT"],
+      symbolIds: watchlistOredr,
     };
     console.log(watchlistData);
     let promise = postAPI(
@@ -42,10 +44,20 @@ const AddWatchlist = () => {
         ></input>
         <label className="text-white">Selection Symbols</label>
         <Typeahead
+          multiple
+          onChange={(selected) => {
+            let order = [];
+            for (let i=0; i<selected.length; i++){
+              order.push(selected[i].symbolId)
+            }
+            setWatchlistOrder(order);
+            setWatchlistSymbols(selected);
+          }}
           id="searchInput"
           className={styles.search}
           labelKey={(option) => option.symbolId}
           options={symbols}
+          defaultSelected={[]}
           size="sm"
         />
         <button

@@ -1,13 +1,13 @@
 .container {
-    padding: 20px;
+  padding: 20px;
 }
 
 input {
-    height: 30px;
-    margin-bottom: 20px;
+  height: 30px;
+  margin-bottom: 20px;
 }
 
 .container > form > button {
-    position: absolute;
-    bottom: 20px;
+  position: absolute;
+  bottom: 20px;
 }
