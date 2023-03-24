@@ -1,5 +1,7 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
+import config from "../../config";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import PutAPI from "../PutAPI/PutAPI";
 import styles from "./EditWatchlist.module.css";
@@ -9,6 +11,48 @@ const EditWatchlist = () => {
   const [watchlistSymbols, setWatchlistSymbols] = useState([]);
   const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
+  const [lightweightId, setLightweightId] = useState(10011);
+  const [watchData, setWatchData] = useState([]); // Table
+  const [defaultSelectedItems, setDefaultSelectedItems] = useState([]);
+
+  useEffect(() => {
+    if (lightweightId == 0) return;
+
+    const token = localStorage.getItem("currentToken");
+    axios
+      .get(
+        `${config.OT_URL}/WatchList/WatchList/${lightweightId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.status === false) {
+          alert(response.data.errorMessage);
+        } else {
+          setWatchData(response.data.data);
+          console.log(watchData);
+          let watchArray = [];
+          for (let i = 0; i < watchData.watchListItems.length; i++) {
+            watchArray.push({
+              id: watchData.watchListItems[i].id,
+              name: watchData.watchListItems[i].symbolId,
+              symbolId: watchData.watchListItems[i].symbolId,
+            });
+          }
+          setDefaultSelectedItems(watchArray);
+          console.log(defaultSelectedItems);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 401)
+          window.location.href = `${config.OT_URL}bff/login`;
+        else alert("Undefined exception: " + JSON.stringify(err));
+      });
+  }, [lightweightId]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     const watchlistData = {
@@ -17,7 +61,7 @@ const EditWatchlist = () => {
     };
     console.log(watchlistData);
     let promise = PutAPI(
-      "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList",
+      "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList/10011",
       watchlistData
     ).then(
       (resp) => {
@@ -37,6 +81,7 @@ const EditWatchlist = () => {
           type="text"
           name="watchlist"
           id="watchlist"
+          placeholder={watchData.name}
           value={watchlistName}
           onChange={(e) => setWatchlistName(e.target.value)}
           required
@@ -46,6 +91,7 @@ const EditWatchlist = () => {
         <Typeahead
           multiple
           onChange={(selected) => {
+            setDefaultSelectedItems(selected);
             let order = [];
             for (let i = 0; i < selected.length; i++) {
               order.push(selected[i].symbolId);
@@ -57,7 +103,7 @@ const EditWatchlist = () => {
           className={styles.search}
           labelKey={(option) => option.symbolId}
           options={symbols}
-          defaultSelected={[]}
+          selected={defaultSelectedItems}
           size="sm"
         />
         <button
