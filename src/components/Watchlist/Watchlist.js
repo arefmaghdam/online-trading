@@ -8,7 +8,6 @@ import { MdAdd } from "react-icons/md";
 import { MdRemove } from "react-icons/md";
 import EditWatchlist from "../EditWatchlist/EditWatchlist";
 import AddWatchlist from "../AddWatchlist/AddWatchlist";
-import postAPI from "../PostAPI/postAPI";
 import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Watchlist = () => {

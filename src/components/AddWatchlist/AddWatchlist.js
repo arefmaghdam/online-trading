@@ -31,7 +31,7 @@ const AddWatchlist = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={submitHandler} autocomplete="off">
+      <form onSubmit={submitHandler} autoComplete="off">
         <label className="text-white">Watchlist Name</label>
         <input
           type="text"
@@ -47,8 +47,8 @@ const AddWatchlist = () => {
           multiple
           onChange={(selected) => {
             let order = [];
-            for (let i=0; i<selected.length; i++){
-              order.push(selected[i].symbolId)
+            for (let i = 0; i < selected.length; i++) {
+              order.push(selected[i].symbolId);
             }
             setWatchlistOrder(order);
             setWatchlistSymbols(selected);
