@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useWatchLightweights from "../../hooks/useWatchLightweights";
-import useWatchItems from "../../hooks/useWatchItems";
 import config from "../../config";
 import styles from "./Watchlist.module.css";
 import { MdEdit } from "react-icons/md";
@@ -13,16 +12,17 @@ import postAPI from "../PostAPI/postAPI";
 import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Watchlist = () => {
-  const [lightweightId, setLightweightId] = useState(1);
+  const [lightweightId, setLightweightId] = useState(0);
   const [displayEditStatus, setDisplayEditStatus] = useState(false);
   const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
   const [watchData, setWatchData] = useState([]); // Table
   let [selectId, setSelectId] = useState(0);
 
   const [watchSymbols] = useWatchLightweights();
-  let [watchItems] = useWatchItems(lightweightId);
 
   useEffect(() => {
+    if (lightweightId == 0) return;
+
     const token = localStorage.getItem("currentToken");
     axios
       .get(
@@ -49,13 +49,11 @@ const Watchlist = () => {
 
   useEffect(() => {
     if (watchSymbols == undefined) return;
-    setWatchSymbolsData(watchSymbols);
-  }, [watchSymbols]);
+    if (watchSymbols.length == 0) return;
 
-  useEffect(() => {
-    if (watchItems.watchListItems == undefined) return;
-    setWatchData(watchItems.watchListItems);
-  }, [watchItems]);
+    setWatchSymbolsData(watchSymbols);
+    setLightweightId(watchSymbols[0].id);
+  }, [watchSymbols]);
 
   const getLightweightId = (e) => {
     let selectId = e.target.value;
