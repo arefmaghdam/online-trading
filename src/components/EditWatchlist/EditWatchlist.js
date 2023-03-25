@@ -21,7 +21,7 @@ const EditWatchlist = () => {
     const token = localStorage.getItem("currentToken");
     axios
       .get(
-        `${config.OT_URL}/WatchList/WatchList/${lightweightId}`,
+        `${config.OT_URL}WatchList/WatchList/${lightweightId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
