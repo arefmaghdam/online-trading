@@ -6,6 +6,10 @@ import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import PutAPI from "../PutAPI/PutAPI";
 import styles from "./EditWatchlist.module.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement } from "../../redux/counterSlice";
+import { setSymbol } from "../../redux/selectedSymbolSlice";
+
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const [watchlistSymbols, setWatchlistSymbols] = useState([]);
@@ -15,19 +19,29 @@ const EditWatchlist = () => {
   const [watchData, setWatchData] = useState([]); // Table
   const [defaultSelectedItems, setDefaultSelectedItems] = useState([]);
 
+  const counter = useSelector((state) => state.counter.value);
+  const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(increment());
+    dispatch(setSymbol("BTC-USDT"));
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrement());
+  };
+
   useEffect(() => {
     if (lightweightId == 0) return;
 
     const token = localStorage.getItem("currentToken");
     axios
-      .get(
-        `${config.OT_URL}WatchList/WatchList/${lightweightId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`${config.OT_URL}WatchList/WatchList/${lightweightId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         if (response.data.status === false) {
           alert(response.data.errorMessage);
@@ -112,6 +126,9 @@ const EditWatchlist = () => {
         >
           Add Watchlist
         </button>
+        <button onClick={handleIncrement}>Increment</button>
+        <span>{counter}</span>
+        <span>{selectedSymbol}</span>
       </form>
     </div>
   );

@@ -10,13 +10,21 @@ import Orderbook from "../Orderbook/Orderbook";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Trades from "../Trades/Trades";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
+
+import { useDispatch, useSelector } from "react-redux";
 
 const Layout = () => {
   const [showMenu, setStatus] = useState(false);
 
   const showSideBarMenu = () => setStatus(!showMenu);
+
+  const counter = useSelector((state) => state.counter.value);
+
+  useEffect(() => {
+    setStatus(!showMenu);
+  }, [counter]);
 
   return (
     <div className={`container-fluid ${styles.container}`}>

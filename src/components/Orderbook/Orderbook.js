@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import useOrderbook from "../../hooks/useOrderbook";
 import styles from "./Orderbook.module.css";
 
+import { useSelector } from "react-redux";
+
 const Orderbook = () => {
   const [orderbook] = useOrderbook();
   const [orderbookData, setOrderbookData] = useState([]);
+
+  const counter = useSelector((state) => state.counter.value);
+  const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
+
   useEffect(() => {
     if (orderbook.bids == undefined) return;
     let askBid = [];
@@ -21,6 +27,8 @@ const Orderbook = () => {
   }, [orderbook]);
   return (
     <div className={styles.Orderbook}>
+      {counter}
+      {selectedSymbol}
       <table className={`table ${styles.table}`}>
         <thead>
           <tr>
