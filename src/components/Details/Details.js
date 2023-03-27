@@ -1,4 +1,3 @@
-import useDetails from "../../hooks/useDetails";
 import styles from "./Details.module.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";

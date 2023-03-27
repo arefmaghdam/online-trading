@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Tab, TabList, Tabs } from "react-tabs";
+import { useSelector } from "react-redux";
+import config from "../../config";
 import postAPI from "../PostAPI/postAPI";
 import styles from "./Sidebar.module.css";
 
@@ -8,6 +9,15 @@ const Sidebar = () => {
   const [quantity, setQuantity] = useState(0);
   const [totalQuantity, setToatalQuantity] = useState(0);
   const [sidebar, setSidebar] = useState(1);
+  const [symbolId, setSymbolId] = useState("BTC-USDT");
+
+  const searchSelectedSymbol = useSelector(
+    (state) => state.searchSelectedSymbol.value
+  );
+
+  useEffect(() => {
+    setSymbolId(searchSelectedSymbol);
+  }, [searchSelectedSymbol]);
 
   useEffect(() => {
     if (isNaN(price) || isNaN(quantity)) return;
@@ -18,14 +28,14 @@ const Sidebar = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const orderData = {
-      symbolId: "BTC-USDT",
+      symbolId: symbolId,
       price: price,
       quantity: quantity,
       orderSide: sidebar,
     };
 
     let promise = postAPI(
-      "https://ot.api.kub.aghdam.nl/OrderManagement/Order",
+      `${config.OT_URL}OrderManagement/Order`,
       orderData
     ).then(
       (resp) => {

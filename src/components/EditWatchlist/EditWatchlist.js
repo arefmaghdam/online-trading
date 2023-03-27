@@ -47,7 +47,6 @@ const EditWatchlist = () => {
           alert(response.data.errorMessage);
         } else {
           setWatchData(response.data.data);
-          console.log(watchData);
           let watchArray = [];
           for (let i = 0; i < watchData.watchListItems.length; i++) {
             watchArray.push({
@@ -61,7 +60,7 @@ const EditWatchlist = () => {
         }
       })
       .catch((err) => {
-        if (err.response.status === 401 || err.response.status == undefined)
+        if (err.response.status === 401 )
           window.location.href = `${config.OT_URL}bff/login`;
         else alert("Undefined exception: " + JSON.stringify(err));
       });
