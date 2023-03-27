@@ -1,8 +1,43 @@
 import useDetails from "../../hooks/useDetails";
 import styles from "./Details.module.css";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import getAPI from "../GetAPI/getAPI";
+import config from "../../config";
 
 const Details = () => {
-  const [details] = useDetails();
+  const [details, setDetails] = useState({});
+
+  const searchSelectedSymbol = useSelector(
+    (state) => state.searchSelectedSymbol.value
+  );
+
+  useEffect(() => {
+    getData("BTC-USDT");
+  }, []);
+
+  useEffect(() => {
+    if (
+      searchSelectedSymbol == "" ||
+      searchSelectedSymbol == undefined ||
+      searchSelectedSymbol == null
+    )
+      return;
+
+    getData(searchSelectedSymbol);
+  }, [searchSelectedSymbol]);
+
+  function getData(symbolId) {
+    getAPI(`${config.OT_URL}MarketData/Symbol/Price/${symbolId}`).then(
+      (resp) => {
+        setDetails(resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  }
+
   return (
     <div className={styles.detailsContainer}>
       <div className={styles.detailsHeader}>
