@@ -16,7 +16,12 @@ const Sidebar = () => {
   );
 
   useEffect(() => {
+    setSymbolId("BTC-USDT");
+  }, []);
+
+  useEffect(() => {
     setSymbolId(searchSelectedSymbol);
+    console.log(searchSelectedSymbol);
   }, [searchSelectedSymbol]);
 
   useEffect(() => {
