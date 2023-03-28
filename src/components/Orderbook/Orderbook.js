@@ -1,15 +1,34 @@
 import { useEffect, useState } from "react";
-import useOrderbook from "../../hooks/useOrderbook";
 import styles from "./Orderbook.module.css";
 
 import { useSelector } from "react-redux";
+import getAPI from "../GetAPI/getAPI";
+import config from "../../config";
 
 const Orderbook = () => {
-  const [orderbook] = useOrderbook();
   const [orderbookData, setOrderbookData] = useState([]);
+  const [symbolId, setSymbolId] = useState("BTC-USDT");
+  const [orderbook, setOrderbook] = useState({});
 
+  const searchSelectedSymbol = useSelector(
+    (state) => state.searchSelectedSymbol.value
+  );
   const counter = useSelector((state) => state.counter.value);
   const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
+
+  useEffect(() => {
+    setSymbolId(searchSelectedSymbol);
+  }, [searchSelectedSymbol]);
+
+  useEffect(() => {
+    if (
+      searchSelectedSymbol == "" ||
+      searchSelectedSymbol == undefined ||
+      searchSelectedSymbol == null
+    )
+      return;
+    getData(searchSelectedSymbol);
+  }, [searchSelectedSymbol]);
 
   useEffect(() => {
     if (orderbook.bids == undefined) return;
@@ -25,6 +44,22 @@ const Orderbook = () => {
     }
     setOrderbookData(askBid);
   }, [orderbook]);
+
+  useEffect(() => {
+    getData("BTC-USDT");
+  }, []);
+
+  const getData = (symbolId) => {
+    getAPI(`${config.OT_URL}MarketData/Bestlimit/${symbolId}`).then(
+      (resp) => {
+        setOrderbook(resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  };
+
   return (
     <div className={styles.Orderbook}>
       {counter}
