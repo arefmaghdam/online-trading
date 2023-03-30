@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const sidebarStatusInitialState = {
-  value: false,
+  value: 0,
 };
 
 const sidebarStatusSlice = createSlice({
   name: "sidebarStatus",
   initialState: sidebarStatusInitialState,
   reducers: {
-    setSidebarStatus(state, action) {
-      state.value = action.payload;
+    increment(state) {
+      state.value += 1;
     },
   },
 });
 
-export const { setSidebarStatus } = sidebarStatusSlice.actions;
+export const { increment } = sidebarStatusSlice.actions;
 export default sidebarStatusSlice.reducer;

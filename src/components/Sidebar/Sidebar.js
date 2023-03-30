@@ -21,7 +21,6 @@ const Sidebar = () => {
 
   useEffect(() => {
     setSymbolId(searchSelectedSymbol);
-    console.log(searchSelectedSymbol);
   }, [searchSelectedSymbol]);
 
   useEffect(() => {

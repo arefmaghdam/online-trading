@@ -12,19 +12,20 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Trades from "../Trades/Trades";
 import { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
-
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Layout = () => {
   const [showMenu, setStatus] = useState(false);
-
   const showSideBarMenu = () => setStatus(!showMenu);
-
-  const counter = useSelector((state) => state.counter.value);
+  const sidebarStatus = useSelector((state) => state.sidebarStatus.value);
 
   useEffect(() => {
     setStatus(!showMenu);
-  }, [counter]);
+  }, [sidebarStatus]);
+
+  useEffect(() => {
+    setStatus(false);
+  }, []);
 
   return (
     <div className={`container-fluid ${styles.container}`}>
