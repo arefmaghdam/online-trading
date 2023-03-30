@@ -28,10 +28,6 @@ const EditWatchlist = () => {
     dispatch(setSymbol("BTC-USDT"));
   };
 
-  const handleDecrement = () => {
-    dispatch(decrement());
-  };
-
   useEffect(() => {
     if (lightweightId == 0) return;
 
@@ -56,7 +52,6 @@ const EditWatchlist = () => {
             });
           }
           setDefaultSelectedItems(watchArray);
-          console.log(defaultSelectedItems);
         }
       })
       .catch((err) => {
@@ -105,6 +100,7 @@ const EditWatchlist = () => {
           multiple
           onChange={(selected) => {
             setDefaultSelectedItems(selected);
+            console.log(selected);
             let order = [];
             for (let i = 0; i < selected.length; i++) {
               order.push(selected[i].symbolId);
