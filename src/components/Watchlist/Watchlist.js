@@ -37,7 +37,6 @@ const Watchlist = () => {
           alert(response.data.errorMessage);
         } else {
           setWatchData(response.data.data.watchListItems);
-          console.log(response.data.data.watchListItems);
         }
       })
       .catch((err) => {

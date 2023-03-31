@@ -67,7 +67,6 @@ const EditWatchlist = () => {
       name: watchlistName,
       symbolIds: watchlistOredr,
     };
-    console.log(watchlistData);
     let promise = PutAPI(
       "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList/10011",
       watchlistData
@@ -100,7 +99,6 @@ const EditWatchlist = () => {
           multiple
           onChange={(selected) => {
             setDefaultSelectedItems(selected);
-            console.log(selected);
             let order = [];
             for (let i = 0; i < selected.length; i++) {
               order.push(selected[i].symbolId);

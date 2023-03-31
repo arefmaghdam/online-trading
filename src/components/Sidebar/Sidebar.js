@@ -47,7 +47,6 @@ const Sidebar = () => {
       }
     );
     dispatch(increment());
-    console.log(orderData);
   };
 
   return (

@@ -15,7 +15,6 @@ const AddWatchlist = () => {
       name: watchlistName,
       symbolIds: watchlistOredr,
     };
-    console.log(watchlistData);
     let promise = postAPI(
       "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList",
       watchlistData
