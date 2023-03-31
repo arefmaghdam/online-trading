@@ -13,10 +13,6 @@ const Details = () => {
   );
 
   useEffect(() => {
-    getData("BTC-USDT");
-  }, []);
-
-  useEffect(() => {
     if (
       searchSelectedSymbol == "" ||
       searchSelectedSymbol == undefined ||
@@ -40,7 +36,7 @@ const Details = () => {
 
   const statusHandler = () => {
     dispatch(increment());
-  }
+  };
 
   return (
     <div className={styles.detailsContainer}>
@@ -53,7 +49,10 @@ const Details = () => {
           </span>
         </div>
         <div className={styles.buySellButton}>
-          <button onClick={statusHandler} className="btn btn-warning text-white font-weight-normal">
+          <button
+            onClick={statusHandler}
+            className="btn btn-warning text-white font-weight-normal"
+          >
             Buy/Sell
           </button>
         </div>

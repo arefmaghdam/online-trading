@@ -7,18 +7,11 @@ import config from "../../config";
 
 const Orderbook = () => {
   const [orderbookData, setOrderbookData] = useState([]);
-  const [symbolId, setSymbolId] = useState("BTC-USDT");
   const [orderbook, setOrderbook] = useState({});
 
   const searchSelectedSymbol = useSelector(
     (state) => state.searchSelectedSymbol.value
   );
-  const counter = useSelector((state) => state.counter.value);
-  const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
-
-  useEffect(() => {
-    setSymbolId(searchSelectedSymbol);
-  }, [searchSelectedSymbol]);
 
   useEffect(() => {
     if (
@@ -45,10 +38,6 @@ const Orderbook = () => {
     setOrderbookData(askBid);
   }, [orderbook]);
 
-  useEffect(() => {
-    getData("BTC-USDT");
-  }, []);
-
   const getData = (symbolId) => {
     getAPI(`${config.OT_URL}MarketData/Bestlimit/${symbolId}`).then(
       (resp) => {
@@ -62,8 +51,6 @@ const Orderbook = () => {
 
   return (
     <div className={styles.Orderbook}>
-      {counter}
-      {selectedSymbol}
       <table className={`table ${styles.table}`}>
         <thead>
           <tr>
