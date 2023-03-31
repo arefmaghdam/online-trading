@@ -9,6 +9,8 @@ import { MdRemove } from "react-icons/md";
 import EditWatchlist from "../EditWatchlist/EditWatchlist";
 import AddWatchlist from "../AddWatchlist/AddWatchlist";
 import DeleteAPI from "../DeleteAPI/DeleteAPI";
+import { useDispatch } from "react-redux";
+import { setSelectedWatchlist } from "../../redux/selectedWatchlistSlice";
 
 const Watchlist = () => {
   const [lightweightId, setLightweightId] = useState(0);
@@ -16,7 +18,8 @@ const Watchlist = () => {
   const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
   const [watchData, setWatchData] = useState([]); // Table
   let [selectId, setSelectId] = useState(0);
-
+  const [watchlistName, setWatchlistName] = useState("");
+  const dispatch = useDispatch();
   const [watchSymbols] = useWatchLightweights();
 
   useEffect(() => {
@@ -37,6 +40,7 @@ const Watchlist = () => {
           alert(response.data.errorMessage);
         } else {
           setWatchData(response.data.data.watchListItems);
+          setWatchlistName(response.data.data.name);
         }
       })
       .catch((err) => {
@@ -53,6 +57,15 @@ const Watchlist = () => {
     setWatchSymbolsData(watchSymbols);
     setLightweightId(watchSymbols[0].id);
   }, [watchSymbols]);
+
+  useEffect(() => {
+    if (watchSymbolsData.length > 0)
+      dispatch(setSelectedWatchlist(watchSymbolsData[0].name));
+  }, [watchSymbolsData]);
+
+  useEffect(() => {
+    dispatch(setSelectedWatchlist(watchlistName));
+  },[watchlistName])
 
   const getLightweightId = (e) => {
     let selectId = e.target.value;

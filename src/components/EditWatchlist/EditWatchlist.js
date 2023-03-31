@@ -17,7 +17,7 @@ const EditWatchlist = () => {
   const [lightweightId, setLightweightId] = useState(10011);
   const [watchData, setWatchData] = useState([]); // Table
   const [defaultSelectedItems, setDefaultSelectedItems] = useState([]);
-
+  const selectedWatchlist = useSelector((state) => state.selectedWatchlist.value)
   const counter = useSelector((state) => state.counter.value);
   const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
   const dispatch = useDispatch();
@@ -90,7 +90,7 @@ const EditWatchlist = () => {
           type="text"
           name="watchlist"
           id="watchlist"
-          placeholder={watchData.name}
+          placeholder={selectedWatchlist}
           value={watchlistName}
           onChange={(e) => setWatchlistName(e.target.value)}
           required
