@@ -12,7 +12,6 @@ import { setSymbol } from "../../redux/selectedSymbolSlice";
 
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
-  const [watchlistSymbols, setWatchlistSymbols] = useState([]);
   const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
   const [lightweightId, setLightweightId] = useState(10011);
@@ -38,27 +37,30 @@ const EditWatchlist = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        if (response.data.status === false) {
-          alert(response.data.errorMessage);
-        } else {
-          setWatchData(response.data.data);
-          let watchArray = [];
-          for (let i = 0; i < watchData.watchListItems.length; i++) {
-            watchArray.push({
-              id: watchData.watchListItems[i].id,
-              name: watchData.watchListItems[i].symbolId,
-              symbolId: watchData.watchListItems[i].symbolId,
-            });
+      .then(
+        (response) => {
+          if (response.data.status === false) {
+            alert(response.data.errorMessage);
+          } else {
+            let responseData = response.data.data;
+            setWatchData(responseData);
+            let watchArray = [];
+            for (let i = 0; i < responseData.watchListItems.length; i++) {
+              watchArray.push({
+                id: responseData.watchListItems[i].id,
+                name: responseData.watchListItems[i].symbolId,
+                symbolId: responseData.watchListItems[i].symbolId,
+              });
+            }
+            setDefaultSelectedItems(watchArray);
           }
-          setDefaultSelectedItems(watchArray);
+        },
+        (reason) => {
+          if (reason.response.status == 401)
+            window.location.href = `${config.OT_URL}bff/login`;
+          else alert("Undefined exception: " + JSON.stringify(reason));
         }
-      })
-      .catch((err) => {
-        if (err.response.status === 401 )
-          window.location.href = `${config.OT_URL}bff/login`;
-        else alert("Undefined exception: " + JSON.stringify(err));
-      });
+      );
   }, [lightweightId]);
 
   const submitHandler = (e) => {
@@ -104,7 +106,6 @@ const EditWatchlist = () => {
               order.push(selected[i].symbolId);
             }
             setWatchlistOrder(order);
-            setWatchlistSymbols(selected);
           }}
           id="searchInput"
           className={styles.search}
