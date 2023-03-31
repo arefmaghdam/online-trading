@@ -5,6 +5,7 @@ import searchSelectedSymbolReducer from "./searchSelectedSymbolSlice";
 import sidebarStatusReducer from "./sidebarStatusSlice"
 import lightweightIdReducer from "./lightweightIdSlice"
 import ordersUpdaterReducer from "./ordersUpdaterSlice"
+import selectedWatchlistReducer from "./selectedWatchlistSlice"
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     sidebarStatus: sidebarStatusReducer,
     lightweightId : lightweightIdReducer,
     ordersUpdater : ordersUpdaterReducer,
+    selectedWatchlist : selectedWatchlistReducer,
   },
 });
 
