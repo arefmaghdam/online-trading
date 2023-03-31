@@ -4,6 +4,7 @@ import selectedSymbolReducer from "./selectedSymbolSlice";
 import searchSelectedSymbolReducer from "./searchSelectedSymbolSlice";
 import sidebarStatusReducer from "./sidebarStatusSlice"
 import lightweightIdReducer from "./lightweightIdSlice"
+import ordersUpdaterReducer from "./ordersUpdaterSlice"
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     searchSelectedSymbol: searchSelectedSymbolReducer,
     sidebarStatus: sidebarStatusReducer,
     lightweightId : lightweightIdReducer,
+    ordersUpdater : ordersUpdaterReducer,
   },
 });
 
