@@ -1,11 +1,36 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import config from "../../config";
 import useOrders from "../../hooks/useOrders";
+import getAPI from "../GetAPI/getAPI";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 
 const Report = () => {
   const [orders] = useOrders();
   const [ordersData, setOredrsData] = useState([]);
+  const ordersUpdater = useSelector((state) => state.ordersUpdater.value)
+
+  const getData = () => {
+    getAPI(`${config.OT_URL}OrderManagement/Order`).then(
+      (resp) => {
+        if (resp == undefined) return
+        setOredrsData(resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  useEffect(() => {
+    getData();
+  }, [ordersUpdater])
+
   useEffect(() => {
     if (orders === undefined) return;
     setOredrsData(orders);
