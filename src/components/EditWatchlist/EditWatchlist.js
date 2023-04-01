@@ -14,8 +14,6 @@ const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
-  const [lightweightId, setLightweightId] = useState(10011);
-  const [watchData, setWatchData] = useState([]); // Table
   const [defaultSymbols, setDefaultSymbols] = useState([]);
   const selectedWatchlist = useSelector((state) => state.selectedWatchlist.value)
   const counter = useSelector((state) => state.counter.value);
@@ -28,26 +26,12 @@ const EditWatchlist = () => {
     dispatch(setSymbol("BTC-USDT"));
   };
 
-  // useEffect(() => {
-  //   setLightweightId(selectedWatchlistId)
-  //   console.log(lightweightId);
-  // }, [])
-
-  // useEffect(() => {
-  //   console.log(selectedWatchlistId);
-  // }, [])
-
-  // useEffect(() => {
-  //   if (watchData.id >= 0)
-  //   console.log(watchData);
-  // }, [watchData])
-
   useEffect(() => {
-    if (lightweightId == 0) return;
+    if (selectedWatchlistId < 0) return;
 
     const token = localStorage.getItem("currentToken");
     axios
-      .get(`${config.OT_URL}WatchList/WatchList/${lightweightId}`, {
+      .get(`${config.OT_URL}WatchList/WatchList/${selectedWatchlistId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +42,6 @@ const EditWatchlist = () => {
             alert(response.data.errorMessage);
           } else {
             let responseData = response.data.data;
-            setWatchData(responseData);
             let watchArray = [];
             for (let i = 0; i < responseData.watchListItems.length; i++) {
               watchArray.push({
@@ -76,7 +59,7 @@ const EditWatchlist = () => {
           else alert("Undefined exception: " + JSON.stringify(reason));
         }
       );
-  }, [lightweightId]);
+  }, [selectedWatchlistId]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -116,12 +99,18 @@ const EditWatchlist = () => {
         <Typeahead
           multiple
           onChange={(selected) => {
-            setDefaultSymbols(selected);
-            let order = [];
-            for (let i = 0; i < selected.length; i++) {
-              order.push(selected[i].symbolId);
+            if (selected.length == 0) {
+              setDefaultSymbols([])
+              return
             }
-            setWatchlistOrder(order);
+            //   let order = [];
+            // for (let i = 0; i < selected.length; i++) {
+            //   order.push(selected[i].symbolId);
+            // setWatchlistOrder(order);
+            // console.log(order);
+            // setDefaultSymbols(selected)
+            // }
+            setDefaultSymbols(selected);
           }}
           id="searchInput"
           className={styles.search}
