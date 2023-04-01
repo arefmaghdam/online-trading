@@ -5,10 +5,7 @@ import config from "../../config";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import PutAPI from "../PutAPI/PutAPI";
 import styles from "./EditWatchlist.module.css";
-
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "../../redux/counterSlice";
-import { setSymbol } from "../../redux/selectedSymbolSlice";
+import { useSelector } from "react-redux";
 
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
@@ -16,19 +13,10 @@ const EditWatchlist = () => {
   const [symbols] = useLightweightSymbols();
   const [defaultSymbols, setDefaultSymbols] = useState([]);
   const selectedWatchlist = useSelector((state) => state.selectedWatchlist.value)
-  const counter = useSelector((state) => state.counter.value);
-  const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
   const selectedWatchlistId = useSelector((state) => state.selectedWatchlistId.value)
-  const dispatch = useDispatch();
-
-  const handleIncrement = () => {
-    dispatch(increment());
-    dispatch(setSymbol("BTC-USDT"));
-  };
 
   useEffect(() => {
     if (selectedWatchlistId < 0) return;
-
     const token = localStorage.getItem("currentToken");
     axios
       .get(`${config.OT_URL}WatchList/WatchList/${selectedWatchlistId}`, {
@@ -68,7 +56,7 @@ const EditWatchlist = () => {
       symbolIds: watchlistOredr,
     };
     let promise = PutAPI(
-      "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList/10011",
+      `${config.OT_URL}WatchList/FullWatchList/${selectedWatchlistId}`,
       watchlistData
     ).then(
       (resp) => {
@@ -83,7 +71,6 @@ const EditWatchlist = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={submitHandler} autoComplete="off">
-        <label>{selectedWatchlistId}</label>
         <label className="text-white">Watchlist Name</label>
         <input
           type="text"
@@ -103,13 +90,12 @@ const EditWatchlist = () => {
               setDefaultSymbols([])
               return
             }
-            //   let order = [];
-            // for (let i = 0; i < selected.length; i++) {
-            //   order.push(selected[i].symbolId);
-            // setWatchlistOrder(order);
-            // console.log(order);
-            // setDefaultSymbols(selected)
-            // }
+              let order = [];
+            for (let i = 0; i < selected.length; i++) {
+              order.push(selected[i].symbolId);
+            setWatchlistOrder(order);
+            setDefaultSymbols(selected)
+            }
             setDefaultSymbols(selected);
           }}
           id="searchInput"
@@ -125,9 +111,6 @@ const EditWatchlist = () => {
         >
           Add Watchlist
         </button>
-        <button onClick={handleIncrement}>Increment</button>
-        <span>{counter}</span>
-        <span>{selectedSymbol}</span>
       </form>
     </div>
   );
