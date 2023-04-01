@@ -1,23 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counterSlice";
+import counterReducer from "./editWatchlistStutusSlice";
 import selectedSymbolReducer from "./selectedSymbolSlice";
 import searchSelectedSymbolReducer from "./searchSelectedSymbolSlice";
-import sidebarStatusReducer from "./sidebarStatusSlice"
-import lightweightIdReducer from "./lightweightIdSlice"
-import ordersUpdaterReducer from "./ordersUpdaterSlice"
-import selectedWatchlistReducer from "./selectedWatchlistSlice"
-import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice"
+import sidebarStatusReducer from "./sidebarStatusSlice";
+import lightweightIdReducer from "./lightweightIdSlice";
+import ordersUpdaterReducer from "./ordersUpdaterSlice";
+import selectedWatchlistReducer from "./selectedWatchlistSlice";
+import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice";
+import editWatchlistStatusReducer from "./editWatchlistStutusSlice";
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    editWatchlistStatus: editWatchlistStatusReducer,
     selectedSymbol: selectedSymbolReducer,
     searchSelectedSymbol: searchSelectedSymbolReducer,
     sidebarStatus: sidebarStatusReducer,
-    lightweightId : lightweightIdReducer,
-    ordersUpdater : ordersUpdaterReducer,
-    selectedWatchlist : selectedWatchlistReducer,
-    selectedWatchlistId : selectedWatchlistIdReducer
+    lightweightId: lightweightIdReducer,
+    ordersUpdater: ordersUpdaterReducer,
+    selectedWatchlist: selectedWatchlistReducer,
+    selectedWatchlistId: selectedWatchlistIdReducer,
   },
 });
 

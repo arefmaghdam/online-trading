@@ -9,7 +9,7 @@ import { MdRemove } from "react-icons/md";
 import EditWatchlist from "../EditWatchlist/EditWatchlist";
 import AddWatchlist from "../AddWatchlist/AddWatchlist";
 import DeleteAPI from "../DeleteAPI/DeleteAPI";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSelectedWatchlist } from "../../redux/selectedWatchlistSlice";
 import { setSelectedWatchlistId } from "../../redux/selectedWatchlistIdSlice";
 
@@ -23,6 +23,19 @@ const Watchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const dispatch = useDispatch();
   const [watchSymbols] = useWatchLightweights();
+  const editWatchlistStatus = useSelector(
+    (state) => state.editWatchlistStatus.value
+  );
+
+  useEffect(() => {
+    setDisplayEditStatus(!displayEditStatus);
+    setSelectId(2);
+  }, [editWatchlistStatus]);
+
+  useEffect(() => {
+    setDisplayEditStatus(displayEditStatus);
+    setSelectId(0);
+  }, []);
 
   useEffect(() => {
     if (lightweightId == 0) return;
@@ -76,7 +89,7 @@ const Watchlist = () => {
   }, [watchlistName]);
 
   useEffect(() => {
-      dispatch(setSelectedWatchlistId(watchId));
+    dispatch(setSelectedWatchlistId(watchId));
   }, [watchId]);
 
   useEffect(() => {
@@ -113,6 +126,8 @@ const Watchlist = () => {
   };
 
   const deleteWatchlist = () => {
+    if (lightweightId == 0) return;
+
     let promise = DeleteAPI(
       `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`
     ).then(
