@@ -36,6 +36,7 @@ const EditWatchlist = () => {
             alert(response.data.errorMessage);
           } else {
             let responseData = response.data.data;
+            setWatchlistName(responseData.name);
             let watchArray = [];
             for (let i = 0; i < responseData.watchListItems.length; i++) {
               watchArray.push({
@@ -56,11 +57,11 @@ const EditWatchlist = () => {
   }, [selectedWatchlistId]);
 
   const submitHandler = (e) => {
-    dispatch(increment())
+    dispatch(increment());
     e.preventDefault();
     const watchlistData = {
       name: watchlistName,
-      symbolIds: defaultSymbols.map(item => item.symbolId),
+      symbolIds: defaultSymbols.map((item) => item.symbolId),
     };
     let promise = PutAPI(
       `${config.OT_URL}WatchList/FullWatchList/${selectedWatchlistId}`,
@@ -84,7 +85,6 @@ const EditWatchlist = () => {
           type="text"
           name="watchlist"
           id="watchlist"
-          placeholder={selectedWatchlist}
           value={watchlistName}
           onChange={(e) => setWatchlistName(e.target.value)}
           required
