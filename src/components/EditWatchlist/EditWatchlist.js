@@ -5,18 +5,24 @@ import config from "../../config";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import PutAPI from "../PutAPI/PutAPI";
 import styles from "./EditWatchlist.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../../redux/editWatchlistStutusSlice";
+import { defaults } from "chart.js";
 
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
-  const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
   const [defaultSymbols, setDefaultSymbols] = useState([]);
-  const selectedWatchlist = useSelector((state) => state.selectedWatchlist.value)
-  const selectedWatchlistId = useSelector((state) => state.selectedWatchlistId.value)
+  const selectedWatchlist = useSelector(
+    (state) => state.selectedWatchlist.value
+  );
+  const selectedWatchlistId = useSelector(
+    (state) => state.selectedWatchlistId.value
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (selectedWatchlistId < 0) return;
+    if (selectedWatchlistId == 0) return;
     const token = localStorage.getItem("currentToken");
     axios
       .get(`${config.OT_URL}WatchList/WatchList/${selectedWatchlistId}`, {
@@ -50,10 +56,11 @@ const EditWatchlist = () => {
   }, [selectedWatchlistId]);
 
   const submitHandler = (e) => {
+    dispatch(increment())
     e.preventDefault();
     const watchlistData = {
       name: watchlistName,
-      symbolIds: watchlistOredr,
+      symbolIds: defaultSymbols.map(item => item.symbolId),
     };
     let promise = PutAPI(
       `${config.OT_URL}WatchList/FullWatchList/${selectedWatchlistId}`,
@@ -61,6 +68,7 @@ const EditWatchlist = () => {
     ).then(
       (resp) => {
         console.log("response: ", resp);
+        // dispatch(increment());
       },
       (err) => {
         console.log("error: ", err);
@@ -87,15 +95,10 @@ const EditWatchlist = () => {
           multiple
           onChange={(selected) => {
             if (selected.length == 0) {
-              setDefaultSymbols([])
-              return
+              setDefaultSymbols([]);
+              return;
             }
-              let order = [];
-            for (let i = 0; i < selected.length; i++) {
-              order.push(selected[i].symbolId);
-            setWatchlistOrder(order);
-            setDefaultSymbols(selected)
-            }
+
             setDefaultSymbols(selected);
           }}
           id="searchInput"
