@@ -125,6 +125,7 @@
 }
 
 .placeOrderForm {
+  overflow-y: scroll;
   position: absolute;
   top: 0;
   right: -20vw;
