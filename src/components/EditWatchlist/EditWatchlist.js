@@ -16,16 +16,31 @@ const EditWatchlist = () => {
   const [symbols] = useLightweightSymbols();
   const [lightweightId, setLightweightId] = useState(10011);
   const [watchData, setWatchData] = useState([]); // Table
-  const [defaultSelectedItems, setDefaultSelectedItems] = useState([]);
+  const [defaultSymbols, setDefaultSymbols] = useState([]);
   const selectedWatchlist = useSelector((state) => state.selectedWatchlist.value)
   const counter = useSelector((state) => state.counter.value);
   const selectedSymbol = useSelector((state) => state.selectedSymbol.value);
+  const selectedWatchlistId = useSelector((state) => state.selectedWatchlistId.value)
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
     dispatch(increment());
     dispatch(setSymbol("BTC-USDT"));
   };
+
+  // useEffect(() => {
+  //   setLightweightId(selectedWatchlistId)
+  //   console.log(lightweightId);
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log(selectedWatchlistId);
+  // }, [])
+
+  // useEffect(() => {
+  //   if (watchData.id >= 0)
+  //   console.log(watchData);
+  // }, [watchData])
 
   useEffect(() => {
     if (lightweightId == 0) return;
@@ -52,7 +67,7 @@ const EditWatchlist = () => {
                 symbolId: responseData.watchListItems[i].symbolId,
               });
             }
-            setDefaultSelectedItems(watchArray);
+            setDefaultSymbols(watchArray);
           }
         },
         (reason) => {
@@ -85,6 +100,7 @@ const EditWatchlist = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={submitHandler} autoComplete="off">
+        <label>{selectedWatchlistId}</label>
         <label className="text-white">Watchlist Name</label>
         <input
           type="text"
@@ -100,7 +116,7 @@ const EditWatchlist = () => {
         <Typeahead
           multiple
           onChange={(selected) => {
-            setDefaultSelectedItems(selected);
+            setDefaultSymbols(selected);
             let order = [];
             for (let i = 0; i < selected.length; i++) {
               order.push(selected[i].symbolId);
@@ -111,7 +127,7 @@ const EditWatchlist = () => {
           className={styles.search}
           labelKey={(option) => option.symbolId}
           options={symbols}
-          selected={defaultSelectedItems}
+          selected={defaultSymbols}
           size="sm"
         />
         <button
