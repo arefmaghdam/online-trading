@@ -8,9 +8,16 @@ import { increment } from "../../redux/sidebarStatusSlice";
 const Details = () => {
   const [details, setDetails] = useState({});
   const dispatch = useDispatch();
+
   const searchSelectedSymbol = useSelector(
     (state) => state.searchSelectedSymbol.value
   );
+
+  const priceUpdate = useSelector((state) => state.signalR.price);
+
+  useEffect(() => {
+    setDetails(priceUpdate);
+  }, [priceUpdate]);
 
   useEffect(() => {
     if (
