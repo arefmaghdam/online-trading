@@ -8,6 +8,7 @@ import ordersUpdaterReducer from "./ordersUpdaterSlice";
 import selectedWatchlistReducer from "./selectedWatchlistSlice";
 import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice";
 import editWatchlistStatusReducer from "./editWatchlistStutusSlice";
+import signalRReducer from "./signalRSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
     ordersUpdater: ordersUpdaterReducer,
     selectedWatchlist: selectedWatchlistReducer,
     selectedWatchlistId: selectedWatchlistIdReducer,
+    signalR: signalRReducer,
   },
 });
 
