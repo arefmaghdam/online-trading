@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import config from "../../config";
-import { increment } from "../../redux/ordersUpdaterSlice";
 import postAPI from "../PostAPI/postAPI";
 import styles from "./Sidebar.module.css";
 
@@ -11,8 +10,6 @@ const Sidebar = () => {
   const [totalQuantity, setToatalQuantity] = useState(0);
   const [sidebar, setSidebar] = useState(1);
   const [symbolId, setSymbolId] = useState("BTC-USDT");
-  const [resp, setResp] = useState({});
-  const dispatch = useDispatch();
   const searchSelectedSymbol = useSelector(
     (state) => state.searchSelectedSymbol.value
   );
@@ -26,10 +23,6 @@ const Sidebar = () => {
 
     setToatalQuantity(price * quantity);
   }, [price, quantity]);
-
-  useEffect(() => {
-    dispatch(increment());
-  }, [resp])
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,7 +39,6 @@ const Sidebar = () => {
     ).then(
       (resp) => {
         console.log("response: ", resp);
-        setResp(resp)
       },
       (err) => {
         console.log("error: ", err);
