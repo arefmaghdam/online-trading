@@ -14,8 +14,8 @@ import { setSelectedWatchlist } from "../../redux/selectedWatchlistSlice";
 import { setSelectedWatchlistId } from "../../redux/selectedWatchlistIdSlice";
 
 const Watchlist = () => {
-  const [lightweightId, setLightweightId] = useState(10013);
-  const [watchId, setWatchId] = useState(10013);
+  const [lightweightId, setLightweightId] = useState(0);
+  const [watchId, setWatchId] = useState(0);
   const [displayEditStatus, setDisplayEditStatus] = useState(false);
   const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
   const [watchData, setWatchData] = useState([]); // Table
