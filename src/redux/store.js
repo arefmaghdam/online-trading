@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./editWatchlistStutusSlice";
 import selectedSymbolReducer from "./selectedSymbolSlice";
 import searchSelectedSymbolReducer from "./searchSelectedSymbolSlice";
 import sidebarStatusReducer from "./sidebarStatusSlice";
@@ -9,6 +8,7 @@ import selectedWatchlistReducer from "./selectedWatchlistSlice";
 import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice";
 import editWatchlistStatusReducer from "./editWatchlistStutusSlice";
 import signalRReducer from "./signalRSlice";
+import subscribedSymbolReducer from "./subscribedSymbolSlice"
 
 const store = configureStore({
   reducer: {
@@ -21,6 +21,7 @@ const store = configureStore({
     selectedWatchlist: selectedWatchlistReducer,
     selectedWatchlistId: selectedWatchlistIdReducer,
     signalR: signalRReducer,
+    subscribedSymbol: subscribedSymbolReducer,
   },
 });
 
