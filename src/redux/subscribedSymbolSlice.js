@@ -14,5 +14,5 @@ const subscribedSymbolSlice = createSlice({
   },
 });
 
-export const { setSymbol } = subscribedSymbolSlice.actions;
+export const { setSubscribedSymbol } = subscribedSymbolSlice.actions;
 export default subscribedSymbolSlice.reducer;

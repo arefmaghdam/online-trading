@@ -9,6 +9,7 @@ import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice";
 import editWatchlistStatusReducer from "./editWatchlistStutusSlice";
 import signalRReducer from "./signalRSlice";
 import subscribedSymbolReducer from "./subscribedSymbolSlice"
+import unsubscribedSymbolReducer from "./unsubscribedSymbolSlice"
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     selectedWatchlistId: selectedWatchlistIdReducer,
     signalR: signalRReducer,
     subscribedSymbol: subscribedSymbolReducer,
+    unsubscribedSymbol: unsubscribedSymbolReducer,
   },
 });
 
