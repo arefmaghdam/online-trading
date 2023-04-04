@@ -4,16 +4,29 @@ import styles from "./Orderbook.module.css";
 import { useSelector } from "react-redux";
 import getAPI from "../GetAPI/getAPI";
 import config from "../../config";
+import postAPI from "../PostAPI/postAPI";
+import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Orderbook = () => {
   const [orderbookData, setOrderbookData] = useState([]);
   const [orderbook, setOrderbook] = useState({});
-
+  const subSymbol = useSelector((state) => state.subscribedSymbol.value);
+  const unsubSymbol = useSelector((state) => state.unsubscribedSymbol.value);
   const searchSelectedSymbol = useSelector(
     (state) => state.searchSelectedSymbol.value
   );
 
-  const orderbookUpdate = useSelector((state.signalR.orderbook));
+  const orderbookUpdate = useSelector((state) => state.signalR.orderbook);
+
+  useEffect(() => {
+    if (subSymbol == undefined) return;
+    postAPI(`${config.OT_URL}Subscribe/OrderbookUpdates?symbolId=${subSymbol}`);
+  }, [subSymbol]);
+
+  useEffect(() => {
+    if (unsubSymbol == undefined) return;
+    DeleteAPI(`${config.OT_URL}Subscribe/OrderbookUpdates?symbolId=${unsubSymbol}`);
+  }, [unsubSymbol]);
 
   useEffect(() => {
     if (
@@ -26,7 +39,7 @@ const Orderbook = () => {
   }, [searchSelectedSymbol]);
 
   useEffect(() => {
-    setOrderbookData(orderbookUpdate);
+    setOrderbook(orderbookUpdate);
   }, [orderbookUpdate]);
 
   useEffect(() => {
