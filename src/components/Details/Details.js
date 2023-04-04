@@ -5,6 +5,7 @@ import getAPI from "../GetAPI/getAPI";
 import config from "../../config";
 import { increment } from "../../redux/sidebarStatusSlice";
 import postAPI from "../PostAPI/postAPI";
+import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Details = () => {
   const [details, setDetails] = useState({});
@@ -16,12 +17,23 @@ const Details = () => {
 
   const priceUpdate = useSelector((state) => state.signalR.price);
   const subSymbol = useSelector((state) => state.subscribedSymbol.value);
+  const unsubSymbol = useSelector((state) => state.unsubscribedSymbol.value);
+
+  window.addEventListener("beforeunload" ,(e) => {
+    DeleteAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${unsubSymbol}`);
+  })
 
   useEffect(() => {
     if (subSymbol == undefined) return;
-    postAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${subSymbol}`, subSymbol);
-    console.log(subSymbol, "###");
+    console.log(subSymbol,"should be subscribed");
+    postAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${subSymbol}`);
   }, [subSymbol]);
+
+  useEffect(() => {
+    if (unsubSymbol == undefined) return;
+    console.log(unsubSymbol,"should be unsubscribed");
+    DeleteAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${unsubSymbol}`);
+  }, [unsubSymbol]);
 
   useEffect(() => {
     setDetails(priceUpdate);
