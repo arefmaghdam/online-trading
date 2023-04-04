@@ -13,6 +13,8 @@ const Orderbook = () => {
     (state) => state.searchSelectedSymbol.value
   );
 
+  const orderbookUpdate = useSelector((state.signalR.orderbook));
+
   useEffect(() => {
     if (
       searchSelectedSymbol == "" ||
@@ -22,6 +24,10 @@ const Orderbook = () => {
       return;
     getData(searchSelectedSymbol);
   }, [searchSelectedSymbol]);
+
+  useEffect(() => {
+    setOrderbookData(orderbookUpdate);
+  }, [orderbookUpdate]);
 
   useEffect(() => {
     if (orderbook.bids == undefined) return;
