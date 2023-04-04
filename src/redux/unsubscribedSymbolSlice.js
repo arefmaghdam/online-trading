@@ -10,6 +10,7 @@ const unsubscribedSymbolSlice = createSlice({
   reducers: {
     setUnubscribedSymbol(state, action) {
       state.value = action.payload;
+      console.log(action.payload, "should be unsubscribed");
     },
   },
 });

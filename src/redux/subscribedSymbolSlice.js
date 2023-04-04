@@ -10,6 +10,7 @@ const subscribedSymbolSlice = createSlice({
   reducers: {
     setSubscribedSymbol(state, action) {
       state.value = action.payload;
+      console.log(action.payload, "should be subscribed");
     },
   },
 });

@@ -5,13 +5,15 @@ import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import { useDispatch } from "react-redux";
 import { setSearchSymbol } from "../../redux/searchSelectedSymbolSlice";
 import { useEffect, useState } from "react";
+import { setSubscribedSymbol } from "../../redux/subscribedSymbolSlice";
+import { setUnubscribedSymbol } from "../../redux/unsubscribedSymbolSlice";
 
 const Search = () => {
   const [symbols] = useLightweightSymbols();
   const [selectedLightweight, setSelectedLightweight] = useState("");
   const [defaultSymbols, setDefaultSymbols] = useState([]);
-  const [subscribedSymbol, setSubscribedSymbol] = useState("");
-  const [unSubscribedSymbol, setUnSubscribedSymbol] = useState("");
+  const [subscribSymbol, setSubscribSymbol] = useState("");
+  const [unSubscribSymbol, setUnSubscribSymbol] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,27 +21,26 @@ const Search = () => {
 
     let symbol = symbols[0];
     setDefaultSymbols([symbol]);
-    setSubscribedSymbol(symbol.symbolId);
-    console.log(subscribedSymbol, "should be subscribed");
+    setSubscribSymbol(symbol.symbolId);
     dispatch(setSearchSymbol(symbol.symbolId));
   }, [symbols]);
 
   useEffect(() => {
     if (selectedLightweight == "") return;
     dispatch(setSearchSymbol(selectedLightweight));
-    setUnSubscribedSymbol(subscribedSymbol);
-    setSubscribedSymbol(selectedLightweight);
+    setUnSubscribSymbol(subscribSymbol);
+    setSubscribSymbol(selectedLightweight);
   }, [selectedLightweight]);
 
   useEffect(() => {
-    if (unSubscribedSymbol == "") return;
-    console.log(unSubscribedSymbol, "should be ubsubscribed");
-  }, [unSubscribedSymbol]);
+    if (unSubscribSymbol == "") return;
+    dispatch(setUnubscribedSymbol(unSubscribSymbol));
+  }, [unSubscribSymbol]);
 
   useEffect(() => {
-    if (subscribedSymbol == "") return;
-    console.log(subscribedSymbol, "should be subscribed");
-  }, [subscribedSymbol]);
+    if (subscribSymbol == "" || subscribSymbol == undefined) return;
+    dispatch(setSubscribedSymbol(subscribSymbol));
+  }, [subscribSymbol]);
 
   return (
     <Typeahead
