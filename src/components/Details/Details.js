@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import getAPI from "../GetAPI/getAPI";
 import config from "../../config";
 import { increment } from "../../redux/sidebarStatusSlice";
+import postAPI from "../PostAPI/postAPI"
+import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Details = () => {
   const [details, setDetails] = useState({});
@@ -43,6 +45,28 @@ const Details = () => {
 
   const statusHandler = () => {
     dispatch(increment());
+  };
+
+  const subscribeSocket = (url, data) => {
+    let promise = postAPI(url, data).then(
+      (resp) => {
+        console.log("response: ", resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  };
+
+  const unsubscribeSocket = (url, data) => {
+    let promise = DeleteAPI(url , data).then(
+      (resp) => {
+        console.log("response: ", resp);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
   };
 
   return (
