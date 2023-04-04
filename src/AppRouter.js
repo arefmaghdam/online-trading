@@ -21,6 +21,9 @@ const AppRouter = function () {
 
     connection.on("ReceivePriceUpdate", (data) => {
       dispatch(setPrice(data));
+    });
+
+    connection.on("ReceiveOrderbookUpdate", (data) => {
       dispatch(setOrderbook(data))
     });
 
