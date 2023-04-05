@@ -1,34 +1,41 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import config from "../../config";
 import useOrders from "../../hooks/useOrders";
 import getAPI from "../GetAPI/getAPI";
+import postAPIWiyhoutData from "../PostAPI/postAPI";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 
 const Report = () => {
   const [orders] = useOrders();
   const [ordersData, setOredrsData] = useState([]);
+  const orderUpdate = useSelector((state) => state.signalR.order);
+
+  useEffect(() => {
+    if (orders.length == 0 || orders == undefined) return;
+    postAPIWiyhoutData(`${config.OT_URL}Subscribe/OrderUpdates`);
+    getData();
+  }, [orders]);
+
+  useEffect(() => {
+    if (orderUpdate.length == 0) return;
+    let orders = [...ordersData, orderUpdate];
+    setOredrsData(orders);
+  }, [orderUpdate]);
 
   const getData = () => {
-    getAPI(`${config.OT_URL}OrderManagement/Order`).then(
+    let promise = getAPI(`${config.OT_URL}OrderManagement/Order`).then(
       (resp) => {
-        if (resp == undefined) return
+        if (resp === undefined || resp.length === 0) return;
         setOredrsData(resp);
       },
       (err) => {
         console.log("error: ", err);
       }
     );
-  }
+  };
 
-  useEffect(() => {
-    getData();
-  }, [])
-
-  useEffect(() => {
-    if (orders === undefined) return;
-    setOredrsData(orders);
-  }, [orders]);
   return (
     <div className={styles.reportContent}>
       <div className={styles.table}>
