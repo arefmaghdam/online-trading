@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const signalRInitialState = {
   price: {},
   orderbook: {},
+  order: [],
 };
 
 const signalRSlice = createSlice({
@@ -15,8 +16,11 @@ const signalRSlice = createSlice({
     setOrderbook(state, action) {
       state.orderbook = action.payload;
     },
+    setOrder(state, action) {
+      state.order = action.payload;
+    },
   },
 });
 
-export const { setPrice, setOrderbook } = signalRSlice.actions;
+export const { setPrice, setOrderbook, setOrder } = signalRSlice.actions;
 export default signalRSlice.reducer;
