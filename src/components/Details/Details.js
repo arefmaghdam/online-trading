@@ -19,19 +19,13 @@ const Details = () => {
   const subSymbol = useSelector((state) => state.subscribedSymbol.value);
   const unsubSymbol = useSelector((state) => state.unsubscribedSymbol.value);
 
-  window.addEventListener("beforeunload" ,(e) => {
-    DeleteAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${unsubSymbol}`);
-  })
-
   useEffect(() => {
     if (subSymbol == undefined) return;
-    console.log(subSymbol,"should be subscribed");
     postAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${subSymbol}`);
   }, [subSymbol]);
 
   useEffect(() => {
     if (unsubSymbol == undefined) return;
-    console.log(unsubSymbol,"should be unsubscribed");
     DeleteAPI(`${config.OT_URL}Subscribe/PriceUpdates?symbolId=${unsubSymbol}`);
   }, [unsubSymbol]);
 
