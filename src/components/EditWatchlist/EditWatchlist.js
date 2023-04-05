@@ -7,15 +7,11 @@ import PutAPI from "../PutAPI/PutAPI";
 import styles from "./EditWatchlist.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../redux/editWatchlistStutusSlice";
-import { defaults } from "chart.js";
 
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const [symbols] = useLightweightSymbols();
   const [defaultSymbols, setDefaultSymbols] = useState([]);
-  const selectedWatchlist = useSelector(
-    (state) => state.selectedWatchlist.value
-  );
   const selectedWatchlistId = useSelector(
     (state) => state.selectedWatchlistId.value
   );
@@ -69,7 +65,6 @@ const EditWatchlist = () => {
     ).then(
       (resp) => {
         console.log("response: ", resp);
-        // dispatch(increment());
       },
       (err) => {
         console.log("error: ", err);
@@ -112,7 +107,7 @@ const EditWatchlist = () => {
           type="submit"
           className="btn btn-primary text-white font-weight-normal"
         >
-          Add Watchlist
+          Edit Watchlist
         </button>
       </form>
     </div>
