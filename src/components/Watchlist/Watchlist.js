@@ -24,7 +24,7 @@ const Watchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const dispatch = useDispatch();
   const [watchSymbols] = useWatchLightweights();
-  
+
   const editWatchlistStatus = useSelector(
     (state) => state.editWatchlistStatus.value
   );
@@ -55,7 +55,7 @@ const Watchlist = () => {
           window.location.href = `${config.OT_URL}bff/login`;
         else alert("Undefined exception: " + JSON.stringify(err));
       });
-  }, [editWatchlistStatus]);
+  }, [editWatchlistStatus, addWatchlistStatus]);
 
   useEffect(() => {
     if (editWatchlistStatus == undefined) return;

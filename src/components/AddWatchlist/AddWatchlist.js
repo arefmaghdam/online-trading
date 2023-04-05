@@ -13,7 +13,6 @@ const AddWatchlist = () => {
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
-    dispatch(increment())
     e.preventDefault();
     const watchlistData = {
       name: watchlistName,
@@ -24,7 +23,7 @@ const AddWatchlist = () => {
       watchlistData
     ).then(
       (resp) => {
-        console.log("response: ", resp);
+        dispatch(increment())
       },
       (err) => {
         console.log("error: ", err);
