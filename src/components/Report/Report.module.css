@@ -31,3 +31,11 @@
   margin-left: 50px;
   margin-right: 50px;
 }
+
+.editCancel {
+  margin-right: 6px;
+  padding: 2px 5px 0px 5px;
+  background-color: #3d3d3d;
+  color: #ff0000;
+  padding-top: 0;
+}

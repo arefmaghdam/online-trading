@@ -6,6 +6,7 @@ import getAPI from "../GetAPI/getAPI";
 import postAPIWiyhoutData from "../PostAPI/postAPI";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
+import { MdCancel } from "react-icons/md";
 
 const Report = () => {
   const [orders] = useOrders();
@@ -36,12 +37,17 @@ const Report = () => {
     );
   };
 
+  const removeOrderHandler = () => {
+    return;
+  };
+
   return (
     <div className={styles.reportContent}>
       <div className={styles.table}>
         <table className={`table ${styles.tableContent}`}>
           <thead>
             <tr>
+              <th>Cancel</th>
               <th>Symbol</th>
               <th>Quantity</th>
               <th>Price</th>
@@ -58,6 +64,14 @@ const Report = () => {
             {ordersData.map((item) => {
               return (
                 <tr key={item.id}>
+                  <td>
+                    <button
+                      onClick={removeOrderHandler}
+                      className={`btn ${styles.editCancel}`}
+                    >
+                      <MdCancel />
+                    </button>
+                  </td>
                   <td>{item.symbolId}</td>
                   <td>{item.quantity}</td>
                   <td>{item.price}</td>
