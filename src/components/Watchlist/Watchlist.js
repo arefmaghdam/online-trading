@@ -17,8 +17,9 @@ const Watchlist = () => {
   const [lightweightId, setLightweightId] = useState(0);
   const [watchId, setWatchId] = useState(0);
   const [displayEditStatus, setDisplayEditStatus] = useState(false);
-  const [watchSymbolsData, setWatchSymbolsData] = useState([]); // Dropdown
-  const [watchData, setWatchData] = useState([]); // Table
+  const [displayAddStatus, setDisplayAddStatus] = useState(false);
+  const [watchSymbolsData, setWatchSymbolsData] = useState([]); 
+  const [watchData, setWatchData] = useState([]); 
   let [selectId, setSelectId] = useState(0);
   const [watchlistName, setWatchlistName] = useState("");
   const dispatch = useDispatch();
@@ -27,10 +28,21 @@ const Watchlist = () => {
     (state) => state.editWatchlistStatus.value
   );
 
+  const addWatchlistStatus = useSelector(
+    (state) => state.addWatchlistStatus.value
+  );
+
   useEffect(() => {
+    if(editWatchlistStatus == undefined) return
     setDisplayEditStatus(!displayEditStatus);
     setSelectId(2);
   }, [editWatchlistStatus]);
+
+  useEffect(() => {
+    if (addWatchlistStatus == undefined) return
+    setDisplayAddStatus(!displayAddStatus);
+    setSelectId(1);
+  }, [addWatchlistStatus]);
 
   useEffect(() => {
     setDisplayEditStatus(displayEditStatus);

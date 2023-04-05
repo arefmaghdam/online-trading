@@ -7,6 +7,7 @@ import ordersUpdaterReducer from "./ordersUpdaterSlice";
 import selectedWatchlistReducer from "./selectedWatchlistSlice";
 import selectedWatchlistIdReducer from "./selectedWatchlistIdSlice";
 import editWatchlistStatusReducer from "./editWatchlistStutusSlice";
+import addWatchlistStatusReducer from "./addWatchlistStatusSlice"
 import signalRReducer from "./signalRSlice";
 import subscribedSymbolReducer from "./subscribedSymbolSlice"
 import unsubscribedSymbolReducer from "./unsubscribedSymbolSlice"
@@ -14,6 +15,7 @@ import unsubscribedSymbolReducer from "./unsubscribedSymbolSlice"
 const store = configureStore({
   reducer: {
     editWatchlistStatus: editWatchlistStatusReducer,
+    addWatchlistStatus: addWatchlistStatusReducer,
     selectedSymbol: selectedSymbolReducer,
     searchSelectedSymbol: searchSelectedSymbolReducer,
     sidebarStatus: sidebarStatusReducer,

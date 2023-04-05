@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
+import { useDispatch } from "react-redux";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
+import { increment } from "../../redux/editWatchlistStutusSlice";
 import postAPI from "../PostAPI/postAPI";
 import styles from "./AddWatchlist.module.css";
 
 const AddWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
-  const [watchlistSymbols, setWatchlistSymbols] = useState([]);
   const [watchlistOredr, setWatchlistOrder] = useState([]);
   const [symbols] = useLightweightSymbols();
+  const dispatch = useDispatch();
+
   const submitHandler = (e) => {
+    dispatch(increment())
     e.preventDefault();
     const watchlistData = {
       name: watchlistName,
@@ -50,7 +54,6 @@ const AddWatchlist = () => {
               order.push(selected[i].symbolId);
             }
             setWatchlistOrder(order);
-            setWatchlistSymbols(selected);
           }}
           id="searchInput"
           className={styles.search}
