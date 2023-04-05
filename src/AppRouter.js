@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import * as signalR from "@microsoft/signalr";
-import { setOrderbook, setPrice } from "./redux/signalRSlice";
+import { setOrder, setOrderbook, setPrice } from "./redux/signalRSlice";
 import { useDispatch } from "react-redux";
 import Layout from "./components/Layout/Layout";
 import SignInResult from "./components/SignInResult/SignInResult";
@@ -25,6 +25,10 @@ const AppRouter = function () {
 
     connection.on("ReceiveOrderbookUpdate", (data) => {
       dispatch(setOrderbook(data))
+    });
+
+    connection.on("ReceiveOrderUpdate", (data) => {
+      dispatch(setOrder(data))
     });
 
     connection.start();
