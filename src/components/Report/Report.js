@@ -7,10 +7,12 @@ import postAPIWiyhoutData from "../PostAPI/postAPI";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import styles from "./Report.module.css";
 import { MdCancel } from "react-icons/md";
+import DeleteAPI from "../DeleteAPI/DeleteAPI";
 
 const Report = () => {
   const [orders] = useOrders();
   const [ordersData, setOredrsData] = useState([]);
+  const [ordersId, setOrdersId] = useState(-1);
   const orderUpdate = useSelector((state) => state.signalR.order);
 
   useEffect(() => {
@@ -23,7 +25,14 @@ const Report = () => {
     if (orderUpdate.length == 0) return;
     let orders = [...ordersData, orderUpdate];
     setOredrsData(orders);
+    console.log(ordersData);
   }, [orderUpdate]);
+
+  useEffect(() => {
+    if (ordersId == undefined || ordersId < 0) return;
+    console.log(ordersId);
+    DeleteAPI(`${config.OT_URL}OrderManagement/Order/${ordersId}`);
+  }, [ordersId]);
 
   const getData = () => {
     let promise = getAPI(`${config.OT_URL}OrderManagement/Order`).then(
@@ -37,8 +46,9 @@ const Report = () => {
     );
   };
 
-  const removeOrderHandler = () => {
-    return;
+  const removeOrderHandler = (e) => {
+    let selectId = e.currentTarget.id;
+    setOrdersId(selectId);
   };
 
   return (
@@ -61,11 +71,13 @@ const Report = () => {
             </tr>
           </thead>
           <tbody>
-            {ordersData.map((item) => {
+            {ordersData.map((item, index) => {
               return (
-                <tr key={item.id}>
+                <tr key={index}>
                   <td>
+                    <span>{item.id}</span>
                     <button
+                      id={item.id}
                       onClick={removeOrderHandler}
                       className={`btn ${styles.editCancel}`}
                     >
