@@ -18,12 +18,13 @@ const Watchlist = () => {
   const [watchId, setWatchId] = useState(0);
   const [displayEditStatus, setDisplayEditStatus] = useState(false);
   const [displayAddStatus, setDisplayAddStatus] = useState(false);
-  const [watchSymbolsData, setWatchSymbolsData] = useState([]); 
-  const [watchData, setWatchData] = useState([]); 
+  const [watchSymbolsData, setWatchSymbolsData] = useState([]);
+  const [watchData, setWatchData] = useState([]);
   let [selectId, setSelectId] = useState(0);
   const [watchlistName, setWatchlistName] = useState("");
   const dispatch = useDispatch();
   const [watchSymbols] = useWatchLightweights();
+  
   const editWatchlistStatus = useSelector(
     (state) => state.editWatchlistStatus.value
   );
@@ -33,13 +34,37 @@ const Watchlist = () => {
   );
 
   useEffect(() => {
-    if(editWatchlistStatus == undefined) return
+    if (editWatchlistStatus == undefined) return;
+
+    const token = localStorage.getItem("currentToken");
+    axios
+      .get(`${config.OT_URL}WatchList/WatchList/Lightweight`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.data.status === false) {
+          alert(response.data.errorMessage);
+        } else {
+          setWatchSymbolsData(response.data.data);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 401)
+          window.location.href = `${config.OT_URL}bff/login`;
+        else alert("Undefined exception: " + JSON.stringify(err));
+      });
+  }, [editWatchlistStatus]);
+
+  useEffect(() => {
+    if (editWatchlistStatus == undefined) return;
     setDisplayEditStatus(!displayEditStatus);
     setSelectId(2);
   }, [editWatchlistStatus]);
 
   useEffect(() => {
-    if (addWatchlistStatus == undefined) return
+    if (addWatchlistStatus == undefined) return;
     setDisplayAddStatus(!displayAddStatus);
     setSelectId(1);
   }, [addWatchlistStatus]);
