@@ -22,6 +22,7 @@ const Watchlist = () => {
   const [watchData, setWatchData] = useState([]);
   let [selectId, setSelectId] = useState(0);
   const [watchlistName, setWatchlistName] = useState("");
+  const [deleteStatus, setDeleteStatus] = useState(true);
   const dispatch = useDispatch();
   const [watchSymbols] = useWatchLightweights();
 
@@ -55,7 +56,7 @@ const Watchlist = () => {
           window.location.href = `${config.OT_URL}bff/login`;
         else alert("Undefined exception: " + JSON.stringify(err));
       });
-  }, [editWatchlistStatus, addWatchlistStatus]);
+  }, [editWatchlistStatus, addWatchlistStatus, deleteStatus]);
 
   useEffect(() => {
     if (editWatchlistStatus == undefined) return;
@@ -169,7 +170,7 @@ const Watchlist = () => {
       `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`
     ).then(
       (resp) => {
-        console.log("response: ", resp);
+        setDeleteStatus(!deleteStatus);
       },
       (err) => {
         console.log("error: ", err);
