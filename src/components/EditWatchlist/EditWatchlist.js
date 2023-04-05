@@ -11,11 +11,21 @@ import { increment } from "../../redux/editWatchlistStutusSlice";
 const EditWatchlist = () => {
   const [watchlistName, setWatchlistName] = useState("");
   const [symbols] = useLightweightSymbols();
+  const [typeaheadSymbols, setTypeaheadSymbols] = useState([]);
   const [defaultSymbols, setDefaultSymbols] = useState([]);
   const selectedWatchlistId = useSelector(
     (state) => state.selectedWatchlistId.value
   );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    let newSymbolIds = symbols.map((item) => {
+      return {
+        symbolId: item.symbolId,
+      };
+    });
+    setTypeaheadSymbols(newSymbolIds);
+  }, [symbols]);
 
   useEffect(() => {
     if (selectedWatchlistId == 0) return;
@@ -36,8 +46,6 @@ const EditWatchlist = () => {
             let watchArray = [];
             for (let i = 0; i < responseData.watchListItems.length; i++) {
               watchArray.push({
-                id: responseData.watchListItems[i].id,
-                name: responseData.watchListItems[i].symbolId,
                 symbolId: responseData.watchListItems[i].symbolId,
               });
             }
@@ -87,19 +95,15 @@ const EditWatchlist = () => {
         ></input>
         <label className="text-white">Selection Symbols</label>
         <Typeahead
+          clearButton
           multiple
           onChange={(selected) => {
-            if (selected.length == 0) {
-              setDefaultSymbols([]);
-              return;
-            }
-
             setDefaultSymbols(selected);
           }}
           id="searchInput"
           className={styles.search}
           labelKey={(option) => option.symbolId}
-          options={symbols}
+          options={typeaheadSymbols}
           selected={defaultSymbols}
           size="sm"
         />
