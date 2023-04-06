@@ -6,6 +6,7 @@ import config from "../../config";
 import { increment } from "../../redux/sidebarStatusSlice";
 import postAPI from "../PostAPI/postAPI";
 import DeleteAPI from "../DeleteAPI/DeleteAPI";
+import Moment from "react-moment";
 
 const Details = () => {
   const [details, setDetails] = useState({});
@@ -109,7 +110,12 @@ const Details = () => {
                 </tr>
                 <tr>
                   <td>Last Trade Time</td>
-                  <td>{details.timestamp}</td>
+                  <div className={styles.timeStyle}>
+                    <Moment format="h:mm:ss Z">{details.timestamp}</Moment>
+                  </div>
+                  <div className={styles.dateStyle}>
+                    <Moment format="MMM Do YY">{details.timestamp}</Moment>
+                  </div>
                 </tr>
                 <tr>
                   <td>Markets</td>
