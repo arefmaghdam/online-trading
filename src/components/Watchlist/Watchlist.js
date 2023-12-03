@@ -81,7 +81,7 @@ const Watchlist = () => {
     const token = localStorage.getItem("currentToken");
     axios
       .get(
-        `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`,
+        `${config.OT_URL}WatchList/WatchList/${lightweightId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -167,7 +167,7 @@ const Watchlist = () => {
     if (lightweightId == 0) return;
 
     let promise = DeleteAPI(
-      `https://ot.api.kub.aghdam.nl/WatchList/WatchList/${lightweightId}`
+      `${config.OT_URL}WatchList/WatchList/${lightweightId}`
     ).then(
       (resp) => {
         setDeleteStatus(!deleteStatus);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { useDispatch } from "react-redux";
+import config from "../../config";
 import useLightweightSymbols from "../../hooks/useLightweightSymbols";
 import { increment } from "../../redux/editWatchlistStutusSlice";
 import postAPI from "../PostAPI/postAPI";
@@ -19,7 +20,7 @@ const AddWatchlist = () => {
       symbolIds: watchlistOredr,
     };
     let promise = postAPI(
-      "https://ot.api.kub.aghdam.nl/WatchList/FullWatchList",
+      `${config.OT_URL}WatchList/FullWatchList`,
       watchlistData
     ).then(
       (resp) => {

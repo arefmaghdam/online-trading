@@ -75,7 +75,7 @@ const Report = () => {
               return (
                 <tr key={index}>
                   <td>
-                    <span>{item.id}</span>
+                    {/* <span>{item.id}</span> */}
                     <button
                       id={item.id}
                       onClick={removeOrderHandler}
